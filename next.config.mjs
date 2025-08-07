@@ -10,6 +10,15 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'pagedone.io',
       },
+      {
+        hostname : 'maps.googleapis.com',
+      },
+      {
+        hostname : "maps.gstatic.com"
+      },
+      {
+        hostname : "via.placeholder.com"
+      }
     ],
   },
   async rewrites() {

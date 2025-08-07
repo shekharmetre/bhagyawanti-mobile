@@ -7,21 +7,22 @@ import { Heart, Eye, ShoppingCart, Star } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useCartStore } from '@/store/cart'
 import { Product } from '@/lib/types' // Make sure it's the correct path
+import { products } from '@/lib/data'
 
 interface Props {
   product: Product
   showPercentage?: boolean
+  cartOption?: string,
+  key : any
 }
 
-const ProductShow: FC<Props> = ({ product, showPercentage }) => {
+const ProductShow: FC<Props> = ({ product = products[0], showPercentage,cartOption,key }) => {
 
   const [liked, setLiked] = useState(false);
   const addToCart = useCartStore((state) => state.addItem);
 
   
   if (!product) return null;
-
-
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -38,12 +39,12 @@ const ProductShow: FC<Props> = ({ product, showPercentage }) => {
     : null;
 
   return (
-    <motion.div className="keen-slider__slide mt-5 p-1">
+    <motion.div key={key} className="mt-5 p-1">
       <div className="bg-white rounded-lg shadow group relative overflow-hidden transition">
         {/* Badges */}
         {product.isNew && (
           <span className="absolute top-2 left-2 bg-blue-600 text-white text-xs font-semibold px-2 py-0.5 rounded-full z-10">
-            NEW
+            NEW 
           </span>
         )}
 
@@ -108,7 +109,7 @@ const ProductShow: FC<Props> = ({ product, showPercentage }) => {
               className="bg-white p-1 rounded-full md:rounded-md shadow hover:bg-gray-100 flex gap-2 items-center"
             >
               <ShoppingCart className="w-4 h-4 text-teal-600" />
-              <p className='hidden md:block md:text-xs font-semibold'>Add To Cart</p>
+              <p className={`hidden  md:text-xs font-semibold ${cartOption ? cartOption : "md:block"}`}>Add To Cart</p>
             </button>
           </div>
         </div>

@@ -1,1 +1,232 @@
 1 >-- On the api/orders/[txnid]/route.ts_____ here problem is i am not able to use get APi method so i use post method why mean i am not able to get params from get request url.
+
+
+
+
+  <div className="text-center mb-12">
+          <div className="inline-block bg-white/20 backdrop-blur-sm rounded-full px-6 py-2 mb-6 animate-slideDown">
+            <span className="text-white font-medium flex items-center">
+              <Sparkles className="w-4 h-4 mr-2" />
+              How it works
+            </span>
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-slideUp">
+            3 Easy steps to repair your phone
+          </h1>
+          <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed animate-fadeIn delay-300">
+            Reserve, Pay, and Get Expert Repair: Quick slot booking with transparent pricing. 
+            Professional repair service with real-time updates and guaranteed quality.
+          </p>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 mb-16">
+          {/* Step 1 - Reserve & Pay */}
+          <div className={`relative transition-all duration-500 ${currentStep === 1 ? 'scale-105 z-20' : 'scale-95 opacity-70'}`}>
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 h-full border border-white/20 relative overflow-hidden">
+              {/* Animated background pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-400 to-transparent animate-pulse"></div>
+              </div>
+              
+              <div className="relative z-10">
+                <div className="flex items-center mb-6">
+                  <div className="bg-gradient-to-r from-purple-400 to-purple-600 rounded-full w-12 h-12 flex items-center justify-center mr-4 animate-bounce">
+                    <span className="text-white font-bold text-xl">1</span>
+                  </div>
+                  <h3 className="text-xl font-semibold text-white">Reserve & Pay</h3>
+                </div>
+                
+                {/* Enhanced Feature List with Icons */}
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-start space-x-3 animate-slideInLeft">
+                    <div className="bg-purple-500/30 rounded-full p-1">
+                      <CreditCard className="w-5 h-5 text-white/80 flex-shrink-0" />
+                    </div>
+                    <div>
+                      <p className="text-white/90 text-sm font-medium">Pay Slot Fee</p>
+                      <p className="text-white/70 text-xs">₹20–₹50 to reserve your repair appointment</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3 animate-slideInLeft delay-100">
+                    <div className="bg-blue-500/30 rounded-full p-1">
+                      <Calendar className="w-5 h-5 text-white/80 flex-shrink-0" />
+                    </div>
+                    <div>
+                      <p className="text-white/90 text-sm font-medium">Quick Scheduling</p>
+                      <p className="text-white/70 text-xs">Get appointment in 4-5 days</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3 animate-slideInLeft delay-200">
+                    <div className="bg-green-500/30 rounded-full p-1">
+                      <MapPin className="w-5 h-5 text-white/80 flex-shrink-0" />
+                    </div>
+                    <div>
+                      <p className="text-white/90 text-sm font-medium">Find Nearby Stores</p>
+                      <p className="text-white/70 text-xs">Select from sponsored repair shops</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Interactive Demo */}
+                <div className="mb-6">
+                  <VideoPlayer step={1} />
+                </div>
+
+                {/* Animated Phone Demo */}
+                <AnimatedPhone step={1} phase={animationPhase} />
+              </div>
+            </div>
+          </div>
+
+          {/* Step 2 - Visit Store */}
+          <div className={`relative transition-all duration-500 ${currentStep === 2 ? 'scale-105 z-20' : 'scale-95 opacity-70'}`}>
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 h-full border border-white/20 relative overflow-hidden">
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-400 to-transparent animate-pulse delay-1000"></div>
+              </div>
+              
+              <div className="relative z-10">
+                <div className="flex items-center mb-6">
+                  <div className="bg-gradient-to-r from-blue-400 to-blue-600 rounded-full w-12 h-12 flex items-center justify-center mr-4 animate-bounce delay-300">
+                    <span className="text-white font-bold text-xl">2</span>
+                  </div>
+                  <h3 className="text-xl font-semibold text-white">Visit Store</h3>
+                </div>
+                
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-start space-x-3 animate-slideInRight">
+                    <div className="bg-orange-500/30 rounded-full p-1">
+                      <Phone className="w-5 h-5 text-white/80 flex-shrink-0" />
+                    </div>
+                    <div>
+                      <p className="text-white/90 text-sm font-medium">Auto Ticket Generation</p>
+                      <p className="text-white/70 text-xs">Retailer gets your issue details automatically</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3 animate-slideInRight delay-100">
+                    <div className="bg-pink-500/30 rounded-full p-1">
+                      <MessageCircle className="w-5 h-5 text-white/80 flex-shrink-0" />
+                    </div>
+                    <div>
+                      <p className="text-white/90 text-sm font-medium">Real-time Communication</p>
+                      <p className="text-white/70 text-xs">Chat with technician during repair</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3 animate-slideInRight delay-200">
+                    <div className="bg-red-500/30 rounded-full p-1">
+                      <Plus className="w-5 h-5 text-white/80 flex-shrink-0" />
+                    </div>
+                    <div>
+                      <p className="text-white/90 text-sm font-medium">Add More Issues</p>
+                      <p className="text-white/70 text-xs">Include additional problems found during diagnosis</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mb-6">
+                  <VideoPlayer step={2} />
+                </div>
+
+                <AnimatedPhone step={2} phase={animationPhase} />
+              </div>
+            </div>
+          </div>
+
+          {/* Step 3 - Pay & Review */}
+          <div className={`relative transition-all duration-500 ${currentStep === 3 ? 'scale-105 z-20' : 'scale-95 opacity-70'}`}>
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 h-full border border-white/20 relative overflow-hidden">
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-green-400 to-transparent animate-pulse delay-2000"></div>
+              </div>
+              
+              <div className="relative z-10">
+                <div className="flex items-center mb-6">
+                  <div className="bg-gradient-to-r from-green-400 to-green-600 rounded-full w-12 h-12 flex items-center justify-center mr-4 animate-bounce delay-500">
+                    <span className="text-white font-bold text-xl">3</span>
+                  </div>
+                  <h3 className="text-xl font-semibold text-white">Pay & Review</h3>
+                </div>
+                
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-start space-x-3 animate-slideInUp">
+                    <div className="bg-yellow-500/30 rounded-full p-1">
+                      <Receipt className="w-5 h-5 text-white/80 flex-shrink-0" />
+                    </div>
+                    <div>
+                      <p className="text-white/90 text-sm font-medium">Transparent Billing</p>
+                      <p className="text-white/70 text-xs">Get detailed repair bill after completion</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3 animate-slideInUp delay-100">
+                    <div className="bg-indigo-500/30 rounded-full p-1">
+                      <CreditCard className="w-5 h-5 text-white/80 flex-shrink-0" />
+                    </div>
+                    <div>
+                      <p className="text-white/90 text-sm font-medium">Flexible Payment</p>
+                      <p className="text-white/70 text-xs">Pay via cash, online, or through our platform</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3 animate-slideInUp delay-200">
+                    <div className="bg-purple-500/30 rounded-full p-1">
+                      <Star className="w-5 h-5 text-white/80 flex-shrink-0" />
+                    </div>
+                    <div>
+                      <p className="text-white/90 text-sm font-medium">Rate & Review</p>
+                      <p className="text-white/70 text-xs">Share feedback and close your ticket</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mb-6">
+                  <VideoPlayer step={3} />
+                </div>
+
+                <AnimatedPhone step={3} phase={animationPhase} />
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+           // const VideoPlayer = ({ step }) => (
+    //     <div className="relative bg-black rounded-xl overflow-hidden">
+    //         <div className="aspect-video bg-gradient-to-br from-purple-900 to-purple-700 flex items-center justify-center">
+    //             <div className="text-center">
+    //                 <Play className="w-12 h-12 text-white/80 mx-auto mb-2" />
+    //                 <p className="text-white/90 text-sm">Step {step} Demo Video</p>
+    //             </div>
+    //         </div>
+    //         <div className="absolute bottom-0 left-0 right-0 bg-black/50 p-2 flex items-center justify-between">
+    //             <div className="flex items-center space-x-2">
+    //                 <button className="text-white hover:text-purple-300">
+    //                     {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+    //                 </button>
+    //                 <Volume2 className="w-4 h-4 text-white" />
+    //             </div>
+    //             <div className="text-white text-xs">0:45 / 2:30</div>
+    //         </div>
+    //     </div>
+    // );

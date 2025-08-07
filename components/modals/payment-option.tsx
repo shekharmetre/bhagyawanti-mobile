@@ -47,7 +47,10 @@ export default function PaymentOptions({ onclose }: { onclose?: () => void }) {
 
     const handleContinue = async () => {
         if (!accessToken || !isEmail(email as string)) {
-            showToast({ title: "Error", description: "You're not authorised Please login." });
+            showToast({ title: "Error", description: "You're not authorised Please login. Wait... we are loggin" });
+            setTimeout(() => {
+                router.push(`/login?redirect=checkout`)
+            }, 5000)
             onclose?.();
             return;
         }
@@ -84,7 +87,7 @@ export default function PaymentOptions({ onclose }: { onclose?: () => void }) {
                 input.type = 'hidden';
                 input.name = key;
                 input.value = String(value);
-                console.log(input,"input value")
+                console.log(input, "input value")
                 form.appendChild(input);
             });
             document.body.appendChild(form);

@@ -23,7 +23,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   const addToCart = useCartStore((state) => state.addItem);
   const router = useRouter()
 
-  console.log(product,"products hosndf")
+  console.log(product, "products hosndf")
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -158,11 +158,18 @@ export default function ProductCard({ product }: ProductCardProps) {
               </span>
             </div>
 
-            <div className="mt-2">
+            <div className="mt-2 flex justify-between items-center">
               <Price
                 price={product.price}
                 discountPrice={product.discountPrice}
               />
+              <button
+                onClick={handleAddToCart}
+                className=" bg-gray-100 md:hidden shadow-whhite shadow-md p-1 px-3 rounded-full md:rounded-md hover:bg-gray-100 flex gap-2 items-center"
+              >
+                <ShoppingCart className="w-4 h-4 text-teal-600" />
+                <p className='hidden md:block md:text-xs font-semibold'>Add To Cart</p>
+              </button>
             </div>
           </div>
         </div>

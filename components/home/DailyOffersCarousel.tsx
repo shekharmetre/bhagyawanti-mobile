@@ -1,48 +1,58 @@
 "use client";
-import React, { useRef } from "react";
+import React from "react";
 import { useKeenSlider } from "keen-slider/react";
 import { motion } from "framer-motion";
 import "keen-slider/keen-slider.min.css";
+import { itemsOffer } from "@/lib/data";
+import Image from "next/image";
 
-const offers = [
-  {
-    image: "/category/accessories.png",
-    href: "#"
-  },
-  {
-    image: "/category/chargers.png",
-    href: "#"
-  },
-  {
-    image: "/category/audio.png",
-    href: "#"
-  },
-  {
-    image: "/category/refurbished.png",
-    href: "#"
-  },
-  {
-    image: "/category/sim.png",
-    href: "#"
-  },
-];
+interface CarouselItem {
+  image: string;
+  href: string;
+  alt?: string;
+}
 
-export default function DailyOffersCarousel() {
+interface DailyOffersCarouselProps {
+  items?: CarouselItem[];
+  className?: string;
+  sectionClassName?: string;
+  containerClassName?: string;
+  autoPlayInterval?: number;
+  imageClassName?:string
+}
+
+export default function DailyOffersCarousel({
+  items = itemsOffer,
+  className = "",
+  sectionClassName = "w-full py-2 sm:py-8 ",
+  containerClassName = " mx-auto rounded-2xl",
+  autoPlayInterval = 2500,
+  imageClassName =  "w-full h-40 object-cover rounded-md"
+}: DailyOffersCarouselProps) {
   const [sliderRef] = useKeenSlider({
     loop: true,
     slides: {
-      perView: 1,
-      spacing: 16,
+      perView: 1.8,  // Default for small screens
+      spacing: 12,
     },
     breakpoints: {
       "(min-width: 640px)": {
-        slides: { perView: 2, spacing: 16 },
+        slides: { 
+          perView: 1.8,
+          spacing: 12 
+        },
       },
       "(min-width: 768px)": {
-        slides: { perView: 4, spacing: 20 },
+        slides: { 
+          perView: 3.5,
+          spacing: 16 
+        },
       },
       "(min-width: 1024px)": {
-        slides: { perView: 5, spacing: 24 },
+        slides: { 
+          perView: 3.5,
+          spacing: 20 
+        },
       },
     },
     renderMode: "performance",
@@ -51,41 +61,44 @@ export default function DailyOffersCarousel() {
       let timeout: NodeJS.Timeout;
       function next() {
         slider.next();
-        timeout = setTimeout(next, 2500);
+        timeout = setTimeout(next, autoPlayInterval);
       }
-      timeout = setTimeout(next, 2500);
+      timeout = setTimeout(next, autoPlayInterval);
       slider.on("destroyed", () => clearTimeout(timeout));
     },
   });
 
   return (
-    <section className="w-full py-2 sm:py-8 bg-gradient-to-br from-white via-blue-50 to-purple-50">
-      <div className="max-w-5xl mx-auto rounded-2xl sm:p-6">
-        <div
-          ref={sliderRef}
-          className="keen-slider px-[10px]"
-        >
-          {offers.map((offer, idx) => (
+    <section className={sectionClassName}>
+      <div className={containerClassName}>
+        <div ref={sliderRef} className={`keen-slider px-[5px] ${className}`}>
+          {items.map((offer, idx) => (
             <a
               className="keen-slider__slide"
-              key={idx}
+              key={`${idx}+${offer.alt}`}
               href={offer.href}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <motion.img
-                src={offer.image}
-                alt={`Offer banner ${idx + 1}`}
-                className="w-full h-56 sm:h-44 md:h-56 lg:h-64 xl:h-72 rounded-xl shadow-md object-cover bg-gray-100"
-                draggable={false}
+              <motion.div
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 300 }}
-              />
+              >
+                <Image
+                  src={offer.image}
+                  alt={offer.alt || `Offer banner ${idx + 1}`}
+                  width={500}
+                  height={300}
+                  className={`${imageClassName}`}
+                  draggable={false}
+                  unoptimized={true}
+                />
+              </motion.div>
             </a>
           ))}
         </div>
       </div>
     </section>
   );
-} 
+}

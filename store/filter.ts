@@ -8,11 +8,15 @@ interface FilterState {
   subcategory: string | null;
   minPrice: number;
   maxPrice: number;
-  searchQuery: string;
+
+  searchQuery: string;         // for product search    // for shop search
+
   setCategory: (category: Category | null) => void;
   setSubcategory: (subcategory: string | null) => void;
   setPriceRange: (min: number, max: number) => void;
+
   setSearchQuery: (query: string) => void;
+
   resetFilters: () => void;
 }
 
@@ -21,12 +25,15 @@ export const useFilterStore = create<FilterState>((set) => ({
   subcategory: null,
   minPrice: 0,
   maxPrice: 100,
-  searchQuery: "",
-  
+
+  searchQuery: "",       // product search input   // shop search input
+
   setCategory: (category) => set({ category }),
   setSubcategory: (subcategory) => set({ subcategory }),
   setPriceRange: (min, max) => set({ minPrice: min, maxPrice: max }),
+
   setSearchQuery: (query) => set({ searchQuery: query }),
+
   resetFilters: () => set({
     category: null,
     subcategory: null,

@@ -1,0 +1,463 @@
+{
+  "status": 200,
+  "success": true,
+  "data": {
+    "data": [
+      {
+        "id": "ChIJWRUuknjHzjsRsyleW8GZfwE",
+        "name": "Poorvika Mobiles Bidar. Buy Latest Mobiles, Laptops, Premium Gadgets, Mobile Accessories etc.",
+        "address": "No.8-9, Sri Shivakala Complex, 274 to 8-9-277, Udgir Rd, opp. Akka mahadevi Mahila Mahavidyalaya, Nawadgeri, Bidar",
+        "rating": 4.9,
+        "user_ratings_total": 4300,
+        "open_now": true,
+        "location": {
+          "lat": 17.9218599,
+          "lng": 77.5094174
+        },
+        "types": [
+          "electronics_store",
+          "store",
+          "point_of_interest",
+          "establishment"
+        ],
+        "photos": [
+          "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=ATKogpeYydYUhUWNfK2z_4U6xcTEvsi6LGT2U8s7OIIuxPN0rQTcCVhN3IRHweOGQF_BNYkrMoXHZJXfh64vFcSpzPUlotSqxAGcGUV-026eY-Bl0QcDOKy1wUBVl1jF_pzPgAvutcrGzHw-ZNqAqfsBB1RBksNFJ80XYMosH_FJPABwyawvZHq3PL5zzU5jaS45TVvARGflNYFsKRFpLLjyuyLW6rs16nP90H8szYvTM_WVPVVbhpBjp0ptbBfgOOyF9F6gtIai68IreWcVRuT7-LVAlGUGT0MOhwzXA7ZDVmuWUkR7N2uPyawcuS8albP6eqcYMIk9CVSHUV0LR19UjF6N5ymHjmZylgMyhRexJn2zxpxUMqS6B-HRAKmzXk_LExlAQpmyhGMjdPdj4XKo_clwjOSvLseCBfjG_RChJoiG68Xlbn76XyfRR9pa0w4HAm909bOqVYr9dzbUKkPVeE5riF4wxlsc3k2pLHsq8ucPSiQhhJrnVPTS_ccr4mkzRnQYSZRAp4dvERypdCX7vkw6HlOfJKryAxq1eLlVLdFp6gt2sipybKnuBuEdpX5NnjyVo9y04SnwLA&key=AIzaSyD0sQrgs6EqKTlQjB7mNj3YnlAKZcICxIo"
+        ],
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+       "isSponsered":true,
+        "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJWRUuknjHzjsRsyleW8GZfwE"
+      },
+      {
+        "id": "ChIJuYcNw9PGzjsRnaDM-iupXTs",
+        "name": "Sangeetha Gadgets - Bidar 2 (Wali complex)",
+        "address": "Wali complex, Megur Hospital Rd, Bidar",
+        "rating": 4.8,
+        "user_ratings_total": 201,
+        "open_now": true,
+        "location": {
+          "lat": 17.9209811,
+          "lng": 77.5114055
+        },
+        "types": [
+          "store",
+          "point_of_interest",
+          "establishment"
+        ],
+        "photos": [
+          "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=ATKogpd1wQFob3l7v9lUC2TGGK8OxDM0D8XTNZgCtJQ8mechNQpMEE22jTYWu9KCFAqkYZeg0z6UutFX8b5xx_CyNU3wUIjT6QfDKXMpE3Xc4XOTHvzE7d0WAsjcf13R9lyTeqRR9qQod1H1co7A9E3bkSDdS9SZ2TrZGcvSXpZTPitYjSZRfxmVGQuhXTariKZcGSUHDzu6UbVcreSafZJcKc0SvK6eofkqinj54C1Vd3UU-Ga-qI4L3ynZgO4acFmoBC4KvPndxZCY6b0JCdXrg9i-8Z-AmHaU4c9IAiFnCuBvjjkGwLw&key=AIzaSyD0sQrgs6EqKTlQjB7mNj3YnlAKZcICxIo"
+        ],
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+       "isSponsered":true,
+        "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJuYcNw9PGzjsRnaDM-iupXTs"
+      },
+      {
+        "id": "ChIJfQiAXWjHzjsRnoDCQxw_e-k",
+        "name": "MOBILE CAFE",
+        "address": "NOUBAD COMPLEX, Railway Station Rd, Devi Colony, Nandi Colony, Bidar",
+        "rating": 5,
+        "user_ratings_total": 57,
+        "open_now": true,
+        "location": {
+          "lat": 17.91998,
+          "lng": 77.5131471
+        },
+        "types": [
+          "store",
+          "point_of_interest",
+          "establishment"
+        ],
+        "photos": [
+          "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=ATKogpcUq8pIboHs1YHlK4AGtJfkIc3PvciTGUUOEkaX8CAqzncHASMqh6Yq2JO-N48H-jKmAwkGsfhozLqKKi_nc3AgHPW6dibwaSev0h8gXn_dzX3MVZdcFtgyhYXd86uCPtkf7z92CkkTylIIE8qxJLevOwuLnO9Bt2aLcvcDaO6srgxEE0xs-7rQ5n_WzRyz0kmzvs5QEbNhuyeyFK5Z_A4Ga_-WfRc1q6f8PfDvuS_f4IxDP75x_ehSSAyoolbCT8l0Dx6BPMQkwVhSADkvu6wzEx-EJ6Akr1NFZ6gXvi7EuK-ChPV-4cnQjMGjHhAaD0nAd7cNvTWj58uX2DghGFoBGMK6pFrDN8xegEztTGiLAeZ3zzYTzx5qQ9C9seJczqoBWSFL4rwHzG406Y-HKFSKaAT_G5pkcRufuwDovJ86wYjhtuxbgeLeUUPfB2nuGB3l8mN9EejtDuTtwo4XqHWDou_fPbRQVV4UOK3DazIr8UevyCVuRTWKCiqattrdEf0udHXz5XqKCpBWgjE0uaW2pxdmsPNBgqg8mDmUwgeOcCL8jb0oEXYdzzLZPT9zAih69A&key=AIzaSyD0sQrgs6EqKTlQjB7mNj3YnlAKZcICxIo"
+        ],
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+       "isSponsered":true,
+        "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJfQiAXWjHzjsRnoDCQxw_e-k"
+      },
+      {
+        "id": "ChIJ7e6vcL_HzjsRHTcKx5XHWS4",
+        "name": "PhonoRange Bidar",
+        "address": "to 4, New Bus Stand, Veerbhadreshwar Towers, CMC No.8-9-198/1, Udgir Rd, Opp:, Shiva Nagar, Bidar",
+        "rating": 5,
+        "user_ratings_total": 86,
+        "open_now": true,
+        "location": {
+          "lat": 17.9226168,
+          "lng": 77.5075775
+        },
+        "types": [
+          "store",
+          "point_of_interest",
+          "establishment"
+        ],
+        "photos": [
+          "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=ATKogpd_WKT86xOH-eg9x4bcwl_bCoRtM8LMPtK1UtUVcLK2A6q62hSSjidK9taYMDUoiQu5jjlXI0bH53g0PD3DKcHntuafBp5tI9pBXjDo4thlScq6g9k1BN5lEcvZRDCCfcSX63ssGWA1PK0kqS8DAgRaHvOe-XVSq53JNV5IM_3NJtfrjB7CQoMD9EKRZUyhy8RfGvk3dk7ndK8IWADT89Dy554hwOmcwG3YrN14JvNh7bsU48Bq8XnWn238K2LnFH8pTSVQxjvbsxCB9llVpHPp-EbJP4Ea4k-5Y0ehi0AQ4JhkLG0&key=AIzaSyD0sQrgs6EqKTlQjB7mNj3YnlAKZcICxIo"
+        ],
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+       "isSponsered":true,
+        "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJ7e6vcL_HzjsRHTcKx5XHWS4"
+      },
+      {
+        "id": "ChIJH3XzXdbGzjsRvjkgL9BCEzI",
+        "name": "Vasavi Times & Gifts",
+        "address": "Naubad Road, Devi Colony, Bank colony, Bidar",
+        "rating": 4.1,
+        "user_ratings_total": 91,
+        "open_now": true,
+        "location": {
+          "lat": 17.9197106,
+          "lng": 77.513933
+        },
+        "types": [
+          "store",
+          "point_of_interest",
+          "establishment"
+        ],
+        "photos": [
+          "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=ATKogpf_9axr5pyllJeWQCg8cOrbhMBrWoQ-txCkMSNR1w16W9ddOpJlLek2l7pcX0WbGSnWZeco8WbK0APjJWBh73-v8aErX6yyZIvMLzlWLRQbsy1TBuRUqpEkZe9SSLBtA9LCpG27ndzInWL-p0AOVu6HIqlzgf2irnbTztu7yfMYbW-Ku6ymvUfqo6Z4Ba6Us2nglTUDSBfy2ijPxj5_q-Hwj4mn7pHGoIzuTkArOM3Lfo1xgacdI9yxLeZKZjThk1pB35p6sz9DIk_7YFk4baQcvvGkGCf2AGP5J3LOhFUKb43r9lRA175D_BrqJ3EWsHodi7cJ7YFiHERniMzN9F0bDNHBDGFq2kabaB_gzO1mGgq1Cl3B9_hWIyypNCUt-WoXlMu9grN5v5s19ExRpFzDZbKymX37Rnqz4juw6A7onjyBoZvUyy46tonJeCvJkR9jG03jfHyKfrjyZSP3pr92W_Xmp4INZH6yLau3x7lz0zJkAJ8R2223Vd92cBGKnMts22SzTkUJH_sWv1h1hnB-XzHo5IxNk0htkoSeKos8QH8LBbDeR88MUmuT9OqWZiBHzkQj&key=AIzaSyD0sQrgs6EqKTlQjB7mNj3YnlAKZcICxIo"
+        ],
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+       "isSponsered":true,
+        "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJH3XzXdbGzjsRvjkgL9BCEzI"
+      },
+      {
+        "id": "ChIJHWUa1tfGzjsR4bt9EcDEMa8",
+        "name": "New MM Mobiles",
+        "address": "WG98+7C3, Opp. Govt. Hospital, Khadi Bhandar Complex, Hospital, near BRIMS medical college, Bidar",
+        "rating": 4.5,
+        "user_ratings_total": 50,
+        "open_now": true,
+        "location": {
+          "lat": 17.9181362,
+          "lng": 77.5160409
+        },
+        "types": [
+          "point_of_interest",
+          "establishment"
+        ],
+        "photos": [
+          "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=ATKogpfOKbdjTY13JRYPH4K9q1-RfswNNP8wkcs-4Ywb3BuqVZDlRdoczbaPWV0hzkjXJ5z_bSHZto6NP9gqP87Q3w7IiFHKpXlLhNXRwXrZ0RKm-QLJqqE04oEweZUYczTODPKlR6KqexShZFKgHCwihRhN2rEHLnTLVNBMJGPuUC2N-fcS-v7eLM6XthegPd5tAHAG_TmldW84PvTTCdwCmSkhoLyhtJLpeKZIW_3OE8jNoJKI_Quk_Z3XITeVLoaqvkyHOsd5FR8fc4ohnBYEJf9QdrxwQ3gD63ZOFOYfl9ZGNVBUxqV1STZCXmWKSB6Dv6krwscCXd7wpSUCEsBW3mxD0SL5Noe6J3XsZyTqBfxfMbeTz72xgM7L-qCZMeAJq0pe31qDgzyD__C5HsQKT5tktjxtNkMc1DzuVJWNB2e8MkEAEV1-OHqLLApEbOXNj4i-JMzSFYGTsMUT9cNztaPuiyjOGuUtAtNOBRCFXIWckzPgbecLtUwvQUfbtrkOC4sRiPsvrV3DIAMdwHYSNdDPmtDcIgubelkmMk1M5EajuU-LL34vOdBzIJ-AldC0rSmhh7lYfR4wBw&key=AIzaSyD0sQrgs6EqKTlQjB7mNj3YnlAKZcICxIo"
+        ],
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+        "icon_background_color": "#7B9EB0",
+        "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJHWUa1tfGzjsR4bt9EcDEMa8"
+      },
+      {
+        "id": "ChIJvWzVVo_HzjsR9ouERAzu_Kk",
+        "name": "Sri Sai Guru Cell Mobile Store",
+        "address": "Axis bank apposite, Shop no 143 Kallapan estate Bvb college road bidar Axis babk, apposite, bvb college road, Bidar",
+        "rating": 5,
+        "user_ratings_total": 14,
+        "open_now": true,
+        "location": {
+          "lat": 17.9062407,
+          "lng": 77.51581
+        },
+        "types": [
+          "store",
+          "point_of_interest",
+          "establishment"
+        ],
+        "photos": [
+          "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=ATKogpfqyu3Kg3arbFoslNkiQ5Jmw-Yw7XDm6EoskfBENmYAm6DOAwhXc91Bt6jACtvrgPYO61x_u-w46b4wsFOHpuerW90rOZt7aBJr9qi8IH3pPHxZB7DGcqrzAy0dmdhi5ai0rXmYAdVmqlCrPu9lfHHG4yvsXCmnTFIg3-SQWZT70zGyi_ZBQ1ZeU6opjCDXp0ajNK-gRI1_76PzBwh6RIIuWi8nIyN_S2rr58YCINSV7tdo3my02HJTzw60XASLTNgMhqpnPsEUkaSLlPhdI5zb3O6aWBEGT_2YS7rMOZOmd_dNpt4&key=AIzaSyD0sQrgs6EqKTlQjB7mNj3YnlAKZcICxIo"
+        ],
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+       "isSponsered":true,
+        "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJvWzVVo_HzjsR9ouERAzu_Kk"
+      },
+      {
+        "id": "ChIJHcC9-CXHzjsRiFqVWs6nLaQ",
+        "name": "Laxmi Mobile Center",
+        "address": "WG8C+9VQ, shahgunj main road, near to kranti ganesh mandir ravi electronic and, Bidar",
+        "rating": 4.7,
+        "user_ratings_total": 3,
+        "open_now": true,
+        "location": {
+          "lat": 17.9159699,
+          "lng": 77.5222438
+        },
+        "types": [
+          "point_of_interest",
+          "establishment"
+        ],
+        "photos": [
+          "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=ATKogpcj6TYhToQxdf1H9ECHiSfiqgWvSz4Dud9l0k8_HWScm4o1x_GRqcf8wfJb-6BJfSIzXDN6npryvnN0q79urWgSm07SjCNOl3R4x-c_62cZ-0-Qkd8oO2rXRmEMo704Jx7z7FZyIwNDTrrX7zAfQH9Pol58hpJ_Vp8PEUvyzzmBpfZ7ivJPrvmOM1Hd5FhM6meS4LxwFW2MXdoIjE7-kvS6eOpSMRdZaYec2h8hJuIlYr7y3kodEdQB4_9ZH29luTM-r2zU0ezt3yPyyq3A914LV74DgZgkOCYI2oCTsAsVyak6RdTN8GbNdwpMcFycgWuoSLlnUNkG3HuEaKSw4_oVrR_3Xg2-HEYZYtmEA_bkNOG_uwBlG9z4TpCdvkVxWG1InNtQG71XXlCb2XqDt4yNmBqx37jivBQ9BYP2Mp1IoUgqZ9PIgX0SH7rt6GopJ_4XZH8dQNfva3jbJhlwqnCc7uA3uqEuxl4y6geyrunQ0hBPyJ5vSNuqLfFzDCOYPjSYCNi3If30MR0A_KrUJxlE98E4ik3INeWc8sTS8OXs8la3xXMNyj_-aqbvMsQUk5ZbLQ&key=AIzaSyD0sQrgs6EqKTlQjB7mNj3YnlAKZcICxIo"
+        ],
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+        "icon_background_color": "#7B9EB0",
+        "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJHcC9-CXHzjsRiFqVWs6nLaQ"
+      },
+      {
+        "id": "ChIJ1bi31CnHzjsR-O_w4tdVM5U",
+        "name": "Sangeetha Gadgets - Bidar 4 (Ambedkar Circle)",
+        "address": "CMC 9/2/202 Bidar Hyderabad Road, Ambedkar Cir, Bidar",
+        "rating": 4.9,
+        "user_ratings_total": 317,
+        "open_now": true,
+        "location": {
+          "lat": 17.9139876,
+          "lng": 77.5194975
+        },
+        "types": [
+          "store",
+          "point_of_interest",
+          "establishment"
+        ],
+        "photos": [
+          "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=ATKogpceI3mZi8iJ7pUAD3sFnoPuSVubZ7r6KvNjbRswfk5NxUo0JN5dSWFanyVkRGmn9jy8utXhbKJa9n5URcHBezwMnfn4-D_RWtxDDiJYcGGw7WSg7bWznxaqMBYvkjB8XmrhNfy-I9ulJOWfkj2DXYqtIGBwErSXfI3rBaMaDVdQkngjSwFkKvCz8ddPI4AUEWhDeVlvxoXVugSQ9e5eIINqJM7M-MjDkV8h8TqBgRZrVwJK-48m68X_2d5pTXUQqZoLK2K2lBJoSAhjIvBoKq9sqjEjd4VsshkDd58lmjrPley_pk0&key=AIzaSyD0sQrgs6EqKTlQjB7mNj3YnlAKZcICxIo"
+        ],
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+       "isSponsered":true,
+        "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJ1bi31CnHzjsR-O_w4tdVM5U"
+      },
+      {
+        "id": "ChIJfw6RFFU9rjsRqCco0_i-0xc",
+        "name": "Sangeetha Gadgets - Bidar 3 (Madival Circle)",
+        "address": "Shop No G2 & G3, Plot No 1, Madival Circle, KBH Colony, Nawadgeri, Bidar",
+        "rating": 4.8,
+        "user_ratings_total": 157,
+        "open_now": true,
+        "location": {
+          "lat": 17.9198713,
+          "lng": 77.5143341
+        },
+        "types": [
+          "store",
+          "point_of_interest",
+          "establishment"
+        ],
+        "photos": [
+          "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=ATKogpdUOKgtzQ8Xm5FG4MkgPouYuwD7sChXl7r0hOKM-urF1MlpiGOcYeTE_gV96F2HZSei2mDHOiUPS0QhjAqMqlF_isO2iT38qrd0KYFzfV5XCjwdbXBMIcOfRpVYzxWLLXaE5cUeHRNu68pJ829Q1ASyu5ihztzOLB8sRJj4io6BPEarxMfwjE8DwqkX9Hlwhy2JG0zJERP7g-OhLMPLsVn4Jzvk9CQLprKmh3Vtd2lJfnH6MWEngAgGJZe9Tx8oPieoZTiuYK7fV1EkE_ocIcpDiYXWWy0gjHsrH0nzU4aoXcq-VVg&key=AIzaSyD0sQrgs6EqKTlQjB7mNj3YnlAKZcICxIo"
+        ],
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+       "isSponsered":true,
+        "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJfw6RFFU9rjsRqCco0_i-0xc"
+      },
+      {
+        "id": "ChIJg3WTYTvHzjsRjioH3ER6vmk",
+        "name": "TECHNOWORLD Mobile Accessories",
+        "address": "01, Super Complex, near Karnataka Footwear, opposite Begum Bazar, Dargah Pura, Old Town, Bidar",
+        "rating": 4.9,
+        "user_ratings_total": 15,
+        "open_now": true,
+        "location": {
+          "lat": 17.914576,
+          "lng": 77.5274669
+        },
+        "types": [
+          "point_of_interest",
+          "establishment"
+        ],
+        "photos": [
+          "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=ATKogpeE2HT5EK1vomjb_LxYBo03NHYg4lLxwSWKZWhRC28O8WpwyQHti4LGqbrMZhGpF8E0VSzlBov--9MWCgXQkSuaEUlCfY5Y99CP4uPGxmujVdCsrV_LQxq7DXHJERnV0_Yd76P-3ej2oj4rrlNb32R5NNcccYli5jmMoeHwdVu6X6-DDN00mZgjj9TNFxKtIzQSaIZdjvRr7TqfuuoE_WqqTSpv8LEqps-sb8FuuBP8HEQ5sgL1l8mhx7Ct8A8vw1geDTa5p7x6qmpqKUmOeSq3FKZ6C-gh841loWONJWgRMByYLeI&key=AIzaSyD0sQrgs6EqKTlQjB7mNj3YnlAKZcICxIo"
+        ],
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+        "icon_background_color": "#7B9EB0",
+        "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJg3WTYTvHzjsRjioH3ER6vmk"
+      },
+      {
+        "id": "ChIJQS-tO9jGzjsRWB-H3PpNUxs",
+        "name": "Sai Mobiles",
+        "address": "Shop No. 3, Kalpatur Complex, KED Road, Near, Nandi Colony, Bidar",
+        "rating": 4.9,
+        "user_ratings_total": 14,
+        "open_now": true,
+        "location": {
+          "lat": 17.9145655,
+          "lng": 77.5150426
+        },
+        "types": [
+          "electronics_store",
+          "store",
+          "point_of_interest",
+          "establishment"
+        ],
+        "photos": [
+          "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=ATKogpeybQrbpj7JNHK85bLElg1atuW5_2tJ2SvHnrqZb6-gYiAgtpW5EqrjtTbxVBoaWzeI8nG2BMPAV7OGY0UhDV7Uc78-1e2pKgmQTkAYsb95ApqoVz3W5jNuWJ-wKiTJi_cqEY9kknvFsJ2Hus6etssAWeyNAvIVHvSklIndfM_JvL-7gMDf35myRl65Ap1BBlpFzMKRnigrvuSYv9dR98TDQDERGq7n8JAqIv1wGzMJNIt89AU8bFI8KGwJ6uBtvTLsc7aVby9_r6zKzAWVMmFVC9ghlI8SVRiBhBk01_e7dWgn7EuRHB538yjJjLDx0DVwUeCBiR-KJ2GZ6idDcjMkBDec11avvLQmVyGPXJNYjyvZw9PpnruaxL30gh4blZ0egb07Vnz_6pAvRv2DUmT_6IJdeg6ASuwT_Ie7g65dkKRpc2a6Ohxwv8BomBMdtJVpNQXsI_wpdTSh17q0tP3WfVpt1_0X65AN8P_XXyhiWExY8E1CFUr6r2AEY_amW0nQ8yNzrAzE3iSHwy5cWXuspiviRHNUTmNlsyv4DS6UhL8PKpXG9WTJyVY6H7DJJ6OZKCES&key=AIzaSyD0sQrgs6EqKTlQjB7mNj3YnlAKZcICxIo"
+        ],
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+       "isSponsered":true,
+        "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJQS-tO9jGzjsRWB-H3PpNUxs"
+      },
+      {
+        "id": "ChIJA2A57f3GzjsRw_SS5wk-w8I",
+        "name": "Om Sai Mobile's",
+        "address": "Gumpa, Main Road, Gumpa, Bidar",
+        "rating": 4.5,
+        "user_ratings_total": 2,
+        "open_now": true,
+        "location": {
+          "lat": 17.8863857,
+          "lng": 77.5147231
+        },
+        "types": [
+          "store",
+          "point_of_interest",
+          "establishment"
+        ],
+        "photos": [],
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+        "icon_background_color": "#7B9EB0",
+        "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJA2A57f3GzjsRw_SS5wk-w8I"
+      },
+      {
+        "id": "ChIJ0bEo4yXHzjsRxXyQVpScG4w",
+        "name": "Lucky mobiles",
+        "address": "Ambedkar Cir Rd, Nandi Colony, Bidar",
+        "rating": 3.4,
+        "user_ratings_total": 14,
+        "open_now": true,
+        "location": {
+          "lat": 17.9147494,
+          "lng": 77.5189146
+        },
+        "types": [
+          "store",
+          "point_of_interest",
+          "establishment"
+        ],
+        "photos": [
+          "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=ATKogpeAi_u2vqeOhipt6SUya3UmWt7MZShhnBRceZL5O3-AveGsehvM37I4VBKFOz4dqP2c0pLmWk0-QMNcFUthjZpWvaoYQ76jWDZu1yOxtRfyqmwWV4mX27cyKt0CLFXo_2naVzI7H3yOUpfUP4ULgar-dJHhDDDodOJqfoZngGLoa0dnZBDe5SvsrHwPLmgobO-Cs-cFGZPfJAYKe-mnKz2IeLIipgrGzWUTbQz7F1gp5CEgpB-X5_Vt9qehTwWIudWNb7e2FquYLJvgCWMzhTmQ0KYmtZ2GpWkKxMeRywG1bUz6UNA&key=AIzaSyD0sQrgs6EqKTlQjB7mNj3YnlAKZcICxIo"
+        ],
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+       "isSponsered":true,
+        "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJ0bEo4yXHzjsRxXyQVpScG4w"
+      },
+      {
+        "id": "ChIJE0ls79fGzjsRWr72u83m6oA",
+        "name": "Sandesh Mobile Shop",
+        "address": "Naubade Complex, WG88, J47, Nehru Stadium Rd, Nandi Colony, Bidar",
+        "rating": 5,
+        "user_ratings_total": 1,
+        "open_now": true,
+        "location": {
+          "lat": 17.9165998,
+          "lng": 77.5152964
+        },
+        "types": [
+          "store",
+          "point_of_interest",
+          "establishment"
+        ],
+        "photos": [],
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+        "icon_background_color": "#7B9EB0",
+        "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJE0ls79fGzjsRWr72u83m6oA"
+      },
+      {
+        "id": "ChIJSXzrNibHzjsRLd9J6yls2Rk",
+        "name": "Muna Moblie",
+        "address": "Halwai Complex, Besides Siddhivinayak Hotel, Ambedkar Circle",
+        "rating": 2.8,
+        "user_ratings_total": 20,
+        "open_now": true,
+        "location": {
+          "lat": 17.9147093,
+          "lng": 77.5194132
+        },
+        "types": [
+          "store",
+          "point_of_interest",
+          "establishment"
+        ],
+        "photos": [
+          "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=ATKogpcV4ja_rX_2JIS2VQO9OnYIV9N8zkAlUe3OjCntPOZ0-5nIhTZ4LoH1cqzms9fKrY3-LZy1-gH8rU1GVz6xQfapOoJ8N-MWl5d5BAPcn7YUcouECnNNxaQSPvFs6vpYg6JosVFvHXOD7QNLTJSgs_dnZxdDyygvmZmMrPcih5H3l5hd5Nmrha9ZaLor6zDzrKr94XdTftDDigg2qqomLeyEJkVPeAPBKaIJmUgErzwjwfNMX-GPs_PVf89QgJ_8wBEPAhJKYcateE2fTIgLWfF0B3z_9ZvKh15Kql8o4pxOeUpnQmpt-T1m5HEKunBeTAclGbnjQ9gbdKDILxsjD_ZvBb_GFOt17IJCi2j_UW_b0gppWbkuwpOXnEtUeaIEk9d_Ikj0bByvzoo4hOESmN5vAaKQy45p8yKgZdd5KEOuuZTqZbJApRZBN_b_QMj4GkQ2BUa7KXwYBqPbX8MaeBm_Z1RSEOFyrU8yyTwv7kTlII5Eoa1cU0VvvpJtnxq6ctCiNpX2XJ8oPEXfdwPklheTE4AG9YDHGSReF38r4JGUmzl5si2R43oZlY3ab7iRVyGiWg&key=AIzaSyD0sQrgs6EqKTlQjB7mNj3YnlAKZcICxIo"
+        ],
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+       "isSponsered":true,
+        "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJSXzrNibHzjsRLd9J6yls2Rk"
+      },
+      {
+        "id": "ChIJuxp8y0zHzjsRjqwJRfSP7ZU",
+        "name": "mobile hub sarves",
+        "address": "Imam Baada, Old City Fort Area, Bidar",
+        "rating": 5,
+        "user_ratings_total": 2,
+        "open_now": true,
+        "location": {
+          "lat": 17.9147176,
+          "lng": 77.5194354
+        },
+        "types": [
+          "store",
+          "point_of_interest",
+          "establishment"
+        ],
+        "photos": [
+          "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=ATKogpfiP4S67Umb8-lAOoV4bRNgN8XcVY40Aem6ptMUBNul5Gry_aknlaoFk5BQ9ugJwQsmPK80Xvk-E0-1tmX9CgAmDnOMlXMukYOps23Tt2DrKhW1KIarocVzP9kb2hxzmLsQS92TwNmZSNilPEcRRhY2p3YPJQR2Hb1DZQDYzazz3t16DeFGvoB9oXCnhLQCz_LQJt__BG3yalyR89waHawqC74Mv-7E3DygsDp4u-HvrhGZbit9D6Z3G7gbu1jFt8h6iUDoUYh5go1FRUMUa5X_Ikn0BNYRnDYvQ01sED-9uLe-XBw&key=AIzaSyD0sQrgs6EqKTlQjB7mNj3YnlAKZcICxIo"
+        ],
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+       "isSponsered":true,
+        "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJuxp8y0zHzjsRjqwJRfSP7ZU"
+      },
+      {
+        "id": "ChIJYTtnTLjHzjsRwKcYKrvWgt0",
+        "name": "TMK Mobiles - Mi store",
+        "address": "WGC7+47H, Near madiwal chowk, beside royal anmol restuarant, Bidar",
+        "rating": 4.5,
+        "user_ratings_total": 30,
+        "open_now": true,
+        "location": {
+          "lat": 17.9203228,
+          "lng": 77.5132457
+        },
+        "types": [
+          "store",
+          "point_of_interest",
+          "establishment"
+        ],
+        "photos": [
+          "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=ATKogpcxNZnG51xmn_6CncIVpRElRVSQ28LeLRkPfBpiF4JN-LTXTJ8fqbb3BcHf7bCp4wwrH-F9BYbkwL3PruCvs0GwoI0r5VOe_sl9rHUgdKdoR7DulPdJm6ywBPM26MtOktRWCt0KQF6uWhbmidRvkY1w-hHL-l4XBYprOlKPhc6WRVaxcmWcKsRnVuva-rSUtL0FmQZ10S673HJMNlFYheQRW2UZsM6vy_kj3ErqNjN3WDhWVuwpQFt74dTUoq0ff9lnZqC2FW_X4JvLn49i2WwA46fjilfDxoDrxtgvXD4YS8fdVkfrklCaiYapjPPgCRpTSQDb_sCUOW6J-8uVQcgGUANsdPGML9ulbjXbHfjDIZ460IElTZpb6lCoJ02-R1MRRgHIHXHTRLrD_syFR8cHmII3liHSl6JD4Lz8aiONEu-kXNOn9uRTikkYZfBQXYsc1_th-QdEUhEQOBldXJFR-YJzNlBKLd1UsPwn51qMvvVxW7u0yaln8ZDib8PlR5zw664WfsK95WmqBbDJMW61nrd0lLtPRp_uTUQGUpSCogmaRMyCwQgZcCjKVdfeQM3fXh5x&key=AIzaSyD0sQrgs6EqKTlQjB7mNj3YnlAKZcICxIo"
+        ],
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+       "isSponsered":true,
+        "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJYTtnTLjHzjsRwKcYKrvWgt0"
+      },
+      {
+        "id": "ChIJKdSBjvrHzjsRy1NrF4IZWaE",
+        "name": "Kasturi mobile sales and service",
+        "address": "Guru Nanak public school & United hospital, opposite Manhalli Road, Mailoor, Bidar",
+        "rating": 4.9,
+        "user_ratings_total": 90,
+        "open_now": null,
+        "location": {
+          "lat": 17.8953046,
+          "lng": 77.5157841
+        },
+        "types": [
+          "store",
+          "point_of_interest",
+          "establishment"
+        ],
+        "photos": [
+          "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=ATKogpcKUTKOqSby6vkx8J4ygTHzi5qud3bCrFGtaWTkM32WjA7u5h5sfpSoCJSIhwjDeLXHTLj3Cd5N00eXHeEtd0hIjaF4gDioAxbo6WJkY9gSUqGK0YGFOJQO7ySOZqaKMZYtCc561k4zqFLy7c-_foMJCYwoolM9V8ZYsfPlb6nrXepuXtY-78InNwXUYpwhyl1jczfXmTQddb67sB3Sb2Kd_mGXQvC_ZwMBLZKVhaE5qcXrqgoa6Dar9YSc80689cVa781cRoYXS2Vub7CGD8OHTM0qT5X4PUqkDnuZ3jojIdgR1d4&key=AIzaSyD0sQrgs6EqKTlQjB7mNj3YnlAKZcICxIo"
+        ],
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+       "isSponsered":true,
+        "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJKdSBjvrHzjsRy1NrF4IZWaE"
+      },
+      {
+        "id": "ChIJ466UtizHzjsRbQckH0Nnguc",
+        "name": "My Jio Store",
+        "address": "BUS STAND, D Xpresss Mini, Shakuntala Complex, Main Road, Bidar",
+        "rating": 3.8,
+        "user_ratings_total": 184,
+        "open_now": true,
+        "location": {
+          "lat": 17.9211544,
+          "lng": 77.511114
+        },
+        "types": [
+          "store",
+          "point_of_interest",
+          "establishment"
+        ],
+        "photos": [
+          "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=ATKogpchIMuGwevMbpH_lY5bcQTf3Nemju-WfwLGP9NOda6VY0uMHpU32H9YHdmhm-g9ZxLjwmXM-6Mwz2M6PbGdvqZwcrr90o7D3I4dt0K8byHlOYzNrh4CECYQ0zPuY8pLvPkGtL4rr5xIVARPloOjFzD5ZcIeaVjojYs8VVFoA-qGSsCNO1apTqvzyqjRUEntV-EuZcZNKayEJVDmeFqv8NzQ892oeZy2i9t7b0xRmrPqd-NZDDu146ft12i8OzT0ezTPCrckNql6eb0GBQTzLrPieAV8T16PCe67P4yL2A4ZhgoRoBJGLuUJIUGYSzQURv23vmZx06YPNGdtTkk6ufcJZ1jYw_rdSu7ekBhGT016UG7loa5SkqQwEBN72tmWJD75MAi0wUT7MRPVdyfkObbv_Dh8AmzpUT7CQP-u191TIbMzdHLfDzCCQwnuk8MENOlUGpaRDqF4e9xJO6CwPD3hGI5QO4pWnl6-WEZeW_XottWVREbn1qeyK547t1-aFaaoYXcKxge9HBueg9gT_rjDoxKOJgvq1DCzxU1X2pEJVoRfWsdIQ6NgzhcS2xNOSdYKKlyX8DP8vg&key=AIzaSyD0sQrgs6EqKTlQjB7mNj3YnlAKZcICxIo"
+        ],
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+       "isSponsered":true,
+        "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJ466UtizHzjsRbQckH0Nnguc"
+      }
+    ]
+  }
+}

@@ -97,3 +97,64 @@ export interface OrderResponse {
     phone?: string | null;
   };
 }
+
+export type RepairVideoType = {
+  id: string;
+  name: string;
+  description: string;
+  videoUrl: string;
+  thumbnail: string;
+  difficulty: 'Medium' | 'Hard' | 'Expert';
+  timeEstimate: string;
+  toolsRequired: string[];
+  note : string;
+  reasons : string[];
+};
+
+export interface ExtraInfoItem {
+  id: string;
+  type: "text" | "video";
+  content: string;
+}
+
+export type ShopData = {
+  id: string;
+  name: string;
+  address: string;
+  rating: number;
+  user_ratings_total: number;
+  open_now: boolean;
+  location: {
+    lat: number;
+    lng: number;
+  };
+  types: string[];
+  photos: string[];
+  icon: string;
+  isSponsered: boolean;
+  maps_url: string;
+};
+
+
+export type AddressType = 'Home' | 'Work' | 'Other';
+
+export type addressFormData = {
+  receiverName: string;
+  receiverPhone: string;
+  addressType: 'Home' | 'Work' | 'Other'; // limited to your addressTypes
+  area?: string; // optional since you're getting it from initialAddress?.address
+  completeAddress: string;
+  sector: string;
+  landmark: string;
+  pincode: string;
+};
+
+
+export type CarouselItem = {
+  image: string;
+  href: string;
+  alt: string;
+};
+
+
+

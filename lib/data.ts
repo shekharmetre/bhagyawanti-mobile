@@ -1,4 +1,4 @@
-import { Product, CategoryInfo } from "./types";
+import { Product, CategoryInfo, RepairVideoType } from "./types";
 
 export const products: Product[] = [
   {
@@ -71,106 +71,7 @@ export const products: Product[] = [
     isNew: true,
     isFeatured: true
   },
-    {
-    id: "earphones-wireless-01",
-    name: "True Wireless Earbuds",
-    description: "Compact true wireless earbuds with premium sound quality and long battery life.",
-    price: 599.99,
-    discountPrice: 449.99,
-    images: [
-      "https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg",
-      "https://images.pexels.com/photos/3394660/pexels-photo-3394660.jpeg"
-    ],
-    category: "audio",
-    subcategory: "wireless",
-    compatibility: ["Universal Bluetooth"],
-    features: ["Bluetooth 5.0", "Touch Controls", "20H Battery Life", "IPX4 Water Resistance"],
-    rating: 4.7,
-    reviews: 320,
-    inStock: true,
-    isNew: true,
-    isFeatured: true
-  },
-    {
-    id: "earphones-wireless-01",
-    name: "True Wireless Earbuds",
-    description: "Compact true wireless earbuds with premium sound quality and long battery life.",
-    price: 599.99,
-    discountPrice: 449.99,
-    images: [
-      "https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg",
-      "https://images.pexels.com/photos/3394660/pexels-photo-3394660.jpeg"
-    ],
-    category: "audio",
-    subcategory: "wireless",
-    compatibility: ["Universal Bluetooth"],
-    features: ["Bluetooth 5.0", "Touch Controls", "20H Battery Life", "IPX4 Water Resistance"],
-    rating: 4.7,
-    reviews: 320,
-    inStock: true,
-    isNew: true,
-    isFeatured: true
-  },
-    {
-    id: "earphones-wireless-01",
-    name: "True Wireless Earbuds",
-    description: "Compact true wireless earbuds with premium sound quality and long battery life.",
-    price: 599.99,
-    discountPrice: 449.99,
-    images: [
-      "https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg",
-      "https://images.pexels.com/photos/3394660/pexels-photo-3394660.jpeg"
-    ],
-    category: "audio",
-    subcategory: "wireless",
-    compatibility: ["Universal Bluetooth"],
-    features: ["Bluetooth 5.0", "Touch Controls", "20H Battery Life", "IPX4 Water Resistance"],
-    rating: 4.7,
-    reviews: 320,
-    inStock: true,
-    isNew: true,
-    isFeatured: true
-  },
-    {
-    id: "earphones-wireless-01",
-    name: "True Wireless Earbuds",
-    description: "Compact true wireless earbuds with premium sound quality and long battery life.",
-    price: 599.99,
-    discountPrice: 449.99,
-    images: [
-      "https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg",
-      "https://images.pexels.com/photos/3394660/pexels-photo-3394660.jpeg"
-    ],
-    category: "audio",
-    subcategory: "wireless",
-    compatibility: ["Universal Bluetooth"],
-    features: ["Bluetooth 5.0", "Touch Controls", "20H Battery Life", "IPX4 Water Resistance"],
-    rating: 4.7,
-    reviews: 320,
-    inStock: true,
-    isNew: true,
-    isFeatured: true
-  },
-    {
-    id: "earphones-wireless-01",
-    name: "True Wireless Earbuds",
-    description: "Compact true wireless earbuds with premium sound quality and long battery life.",
-    price: 599.99,
-    discountPrice: 449.99,
-    images: [
-      "https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg",
-      "https://images.pexels.com/photos/3394660/pexels-photo-3394660.jpeg"
-    ],
-    category: "audio",
-    subcategory: "wireless",
-    compatibility: ["Universal Bluetooth"],
-    features: ["Bluetooth 5.0", "Touch Controls", "20H Battery Life", "IPX4 Water Resistance"],
-    rating: 4.7,
-    reviews: 320,
-    inStock: true,
-    isNew: true,
-    isFeatured: true
-  },
+
   {
     id: "screen-dplus-01",
     name: "D+ Premium Screen Protector",
@@ -211,7 +112,7 @@ export const products: Product[] = [
     name: "Car Phone Holder",
     description: "Versatile car mount holder for secure placement of your phone while driving.",
     price: 799.99,
-    discountPrice  : 399.99,
+    discountPrice: 399.99,
     images: [
       "https://images.pexels.com/photos/3068059/pexels-photo-3068059.jpeg",
       "https://images.pexels.com/photos/6647367/pexels-photo-6647367.jpeg"
@@ -224,7 +125,7 @@ export const products: Product[] = [
     reviews: 195,
     inStock: true
   },
-    {
+  {
     id: "og-red-80w-charger",
     name: "OG Red 80W Charger",
     description: "High-power fast charger with 80W output for rapid device charging.",
@@ -232,7 +133,7 @@ export const products: Product[] = [
     images: [
       "/products-images/80w.png"
     ],
-    discountPrice : 399.99,
+    discountPrice: 399.99,
     category: "chargers",
     subcategory: "high-power",
     compatibility: ["Samsung", "OnePlus", "Xiaomi"],
@@ -247,9 +148,9 @@ export const products: Product[] = [
     name: "Samsung C Adapter",
     description: "Official Samsung Type-C adapter for reliable and efficient charging.",
     price: 529.99,
-    discountPrice : 419.99,
+    discountPrice: 419.99,
     images: [
-     "/products-images/samsung-c.png"
+      "/products-images/samsung-c.png"
     ],
     category: "adapters",
     subcategory: "type-c",
@@ -265,7 +166,7 @@ export const products: Product[] = [
     name: "iPhone PD Adapter",
     description: "Power Delivery (PD) adapter for iPhone devices. Fast and safe charging.",
     price: 749.99,
-    discountPrice : 599.99,
+    discountPrice: 599.99,
     images: [
       "/products-images/iphone.png"
     ],
@@ -283,7 +184,7 @@ export const products: Product[] = [
     name: "3-in-1 Magnetic Charging Cable",
     description: "Universal magnetic charging cable compatible with Type-C, Micro USB, and Lightning devices.",
     price: 399.99,
-    discountPrice : 249.99,
+    discountPrice: 249.99,
     images: [
       "/products-images/magnetic.png"
     ],
@@ -301,7 +202,7 @@ export const products: Product[] = [
     name: "Power Bank 2000 Watt",
     description: "Ultra high-capacity power bank capable of powering laptops and high-wattage devices.",
     price: 1349.99,
-    discountPrice : 999.99,
+    discountPrice: 999.99,
     images: [
       "/products-images/powerbank.png"
     ],
@@ -319,7 +220,7 @@ export const products: Product[] = [
     name: "Selfie Stick",
     description: "Extendable selfie stick with Bluetooth remote for capturing perfect shots.",
     price: 199.99,
-    discountPrice : 49.99,
+    discountPrice: 49.99,
     images: [
       "/products-images/selfie.png"
     ],
@@ -337,7 +238,7 @@ export const products: Product[] = [
     name: "White Border Glass",
     description: "Premium tempered glass with white border design for full-screen protection.",
     price: 150.00,
-    discountPrice : 69.99,
+    discountPrice: 69.99,
     images: [
       "/products-images/white-glass.png"
     ],
@@ -551,5 +452,222 @@ export const testimonials = [
     role: "Tech Enthusiast",
     content: "I've tried many chargers, and the premium fast charger is by far the best. My phone charges in minutes!",
     avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg"
+  }
+];
+
+
+// Export the array with the type
+export const repairVideos: RepairVideoType[] = [
+  {
+    id: 'battery',
+    name: 'Battery Replacement',
+    description: 'Step-by-step guide to replacing your smartphone battery',
+    videoUrl: 'https://tsvoqnwwdslkzjlpgmkv.supabase.co/storage/v1/object/public/repair-bucket/Untitled%20folder/battery-replacement.mp4',
+    thumbnail: '/repair-thumbnails/battery-thumb.jpg',
+    difficulty: 'Medium',
+    timeEstimate: '20-30 mins',
+    toolsRequired: ['Pry tool', 'Screwdriver', 'New battery'],
+    note: 'Useful when battery drains quickly or doesn’t charge.',
+    reasons: [
+      'Battery drains too fast',
+      'Device shuts down randomly',
+      'Phone doesn’t charge at all',
+      'Battery swelling or overheating'
+    ],
+  },
+  {
+    id: 'mic',
+    name: 'Microphone Repair',
+    description: 'Fix microphone not working issues',
+    videoUrl: 'https://tsvoqnwwdslkzjlpgmkv.supabase.co/storage/v1/object/public/repair-bucket/Untitled%20folder/mic-repair.mp4',
+    thumbnail: '/repair-thumbnails/mic-thumb.jpg',
+    difficulty: 'Hard',
+    timeEstimate: '30-45 mins',
+    toolsRequired: ['Pry tool', 'Tweezers', 'Replacement mic'],
+    note: 'Fix if the other person can’t hear you on calls.',
+    reasons: [
+      'People can’t hear you on calls',
+      'Voice recording not working',
+      'Mic muffled or low sound',
+      'Voice commands not detected'
+    ]
+  },
+  {
+    id: 'motherboard',
+    name: 'Motherboard Repair',
+    description: 'Advanced motherboard troubleshooting and repair',
+    videoUrl: 'https://tsvoqnwwdslkzjlpgmkv.supabase.co/storage/v1/object/public/repair-bucket/Untitled%20folder/mother-board-repair.mp4',
+    thumbnail: '/repair-thumbnails/motherboard-thumb.jpg',
+    difficulty: 'Expert',
+    timeEstimate: '1-2 hours',
+    toolsRequired: ['Soldering iron', 'Multimeter', 'Microscope'],
+    note: 'Only attempt if you’re experienced or have the right equipment.',
+    reasons: [
+      'Phone doesn’t turn on at all',
+      'No display or boot loop issue',
+      'Overheating even when idle',
+      'Frequent app crashes or freezing'
+    ]
+  },
+  {
+    id: 'power-button',
+    name: 'Power Button Replacement',
+    description: 'Replace faulty power/lock button',
+    videoUrl: 'https://tsvoqnwwdslkzjlpgmkv.supabase.co/storage/v1/object/public/repair-bucket/Untitled%20folder/power-volume-out-button.mp4',
+    thumbnail: '/repair-thumbnails/power-button-thumb.jpg',
+    difficulty: 'Medium',
+    timeEstimate: '15-25 mins',
+    toolsRequired: ['Pry tool', 'Screwdriver', 'Replacement button'],
+    note: 'Helpful if your phone doesn’t turn on/off properly.',
+    reasons: [
+      'Power button unresponsive',
+      'Device doesn’t lock/sleep',
+      'Button stuck or loose',
+      'Inconsistent response on press'
+    ]
+  },
+  {
+    id: 'volume-button',
+    name: 'Volume Button Replacement',
+    description: 'Fix unresponsive volume buttons',
+    videoUrl: 'https://tsvoqnwwdslkzjlpgmkv.supabase.co/storage/v1/object/public/repair-bucket/Untitled%20folder/power-volume-out-button.mp4',
+    thumbnail: '/repair-thumbnails/volume-button-thumb.jpg',
+    difficulty: 'Medium',
+    timeEstimate: '15-25 mins',
+    toolsRequired: ['Pry tool', 'Screwdriver', 'Replacement buttons'],
+    note: 'Use this guide if your volume buttons are stuck or unresponsive.',
+    reasons: [
+      'Volume button stuck or broken',
+      'Can’t increase or decrease volume',
+      'Button doesn’t click',
+      'Sound stuck on mute or max'
+    ]
+  },
+  {
+    id: 'screen',
+    name: 'Screen Replacement',
+    description: 'Complete display assembly replacement guide',
+    videoUrl: 'https://tsvoqnwwdslkzjlpgmkv.supabase.co/storage/v1/object/public/repair-bucket/Untitled%20folder/screen-replacement.mp4',
+    thumbnail: '/repair-thumbnails/screen-thumb.jpg',
+    difficulty: 'Medium',
+    timeEstimate: '30-45 mins',
+    toolsRequired: ['Pry tools', 'Screwdriver', 'New screen'],
+    note: 'Perfect for broken, cracked, or unresponsive screens.',
+    reasons: [
+      'Cracked or shattered screen',
+      'Touch not working',
+      'Display flickering or blacked out',
+      'Dead pixels or discoloration'
+    ]
+  },
+  {
+    id: 'speaker',
+    name: 'Speaker Replacement',
+    description: 'Replace faulty earpiece or loudspeaker',
+    videoUrl: 'https://tsvoqnwwdslkzjlpgmkv.supabase.co/storage/v1/object/public/repair-bucket/Untitled%20folder/speaker-replacement.mp4',
+    thumbnail: '/repair-thumbnails/speaker-thumb.jpg',
+    difficulty: 'Medium',
+    timeEstimate: '20-30 mins',
+    toolsRequired: ['Pry tool', 'Tweezers', 'Replacement speaker'],
+    note: 'Fix distorted or no sound from speaker.',
+    reasons: [
+      'No sound from speaker',
+      'Sound is distorted or crackling',
+      'Speaker works only with headphones',
+      'Low volume even at max setting'
+    ]
+  },
+  {
+    id: 'water-damage',
+    name: 'Water Damage Repair',
+    description: 'Emergency water damage treatment guide',
+    videoUrl: 'https://tsvoqnwwdslkzjlpgmkv.supabase.co/storage/v1/object/public/repair-bucket/Untitled%20folder/water-damange-repair.mp4',
+    thumbnail: '/repair-thumbnails/water-thumb.jpg',
+    difficulty: 'Hard',
+    timeEstimate: '45-60 mins',
+    toolsRequired: ['Isopropyl alcohol', 'Ultrasonic cleaner', 'Brass brush'],
+    note: 'Must try immediately after water exposure. Remove battery if possible.',
+    reasons: [
+      'Phone dropped in water',
+      'Screen not turning on after water',
+      'Random restarts or freezing',
+      'Corrosion signs or discoloration inside'
+    ]
+  }
+];
+
+export const offersCarousel = [
+  {
+    image: "https://tsvoqnwwdslkzjlpgmkv.supabase.co/storage/v1/object/public/repair-bucket/offers-page/big-sale-retail-with-presents-card.jpg",
+    href: "#",
+    alt: "Big sale retail with presents card"
+  },
+  {
+    image: "https://tsvoqnwwdslkzjlpgmkv.supabase.co/storage/v1/object/public/repair-bucket/offers-page/cyber-monday-celebration.jpg",
+    href: "#",
+    alt: "Cyber Monday celebration"
+  },
+  {
+    image: "https://tsvoqnwwdslkzjlpgmkv.supabase.co/storage/v1/object/public/repair-bucket/offers-page/image%209.png",
+    href: "#",
+    alt: "Special offer"
+  },
+  {
+    image: "https://tsvoqnwwdslkzjlpgmkv.supabase.co/storage/v1/object/public/repair-bucket/offers-page/maxresdefault.jpg",
+    href: "#",
+    alt: "Exclusive deal"
+  },
+  {
+    image: "https://tsvoqnwwdslkzjlpgmkv.supabase.co/storage/v1/object/public/repair-bucket/offers-page/offer1.jpg",
+    href: "#",
+    alt: "Limited time offer"
+  },
+  {
+    image: "https://tsvoqnwwdslkzjlpgmkv.supabase.co/storage/v1/object/public/repair-bucket/offers-page/offer8.jpg",
+    href: "#",
+    alt: "Discount promotion"
+  },
+  {
+    image: "https://tsvoqnwwdslkzjlpgmkv.supabase.co/storage/v1/object/public/repair-bucket/offers-page/Port-Airtel-to-Jio.jpg",
+    href: "#",
+    alt: "Port Airtel to Jio offer"
+  },
+  {
+    image: "https://tsvoqnwwdslkzjlpgmkv.supabase.co/storage/v1/object/public/repair-bucket/offers-page/sale-with-special-discount-headphones.jpg",
+    href: "#",
+    alt: "Headphones sale with special discount"
+  },
+  {
+    image: "https://tsvoqnwwdslkzjlpgmkv.supabase.co/storage/v1/object/public/repair-bucket/offers-page/single-s-day-banner-with-clock.jpg",
+    href: "#",
+    alt: "Single's day banner with clock"
+  }
+]
+
+export const itemsOffer = [
+  {
+    image: "/category/accessories.png",
+    href: "#",
+    alt: "Mobile accessories collection"
+  },
+  {
+    image: "/category/chargers.png",
+    href: "#",
+    alt: "Fast chargers and power adapters"
+  },
+  {
+    image: "/category/audio.png",
+    href: "#",
+    alt: "Premium audio devices and headphones"
+  },
+  {
+    image: "/category/refurbished.png",
+    href: "#",
+    alt: "Certified refurbished devices"
+  },
+  {
+    image: "/category/sim.png",
+    href: "#",
+    alt: "SIM cards and mobile plans"
   }
 ];

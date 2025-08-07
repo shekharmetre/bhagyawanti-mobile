@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, MapPin, Phone, Home, Building } from 'lucide-react';
-import { FormLocationData, LocationData } from '@/lib/types';
+import { addressFormData, FormLocationData, LocationData } from '@/lib/types';
+import { useShopFilterStore } from '@/store/shop-filter';
 
 interface ManualAddressFormProps {
   onClose: () => void;
@@ -8,8 +9,41 @@ interface ManualAddressFormProps {
   initialAddress?: LocationData;
 }
 
+  const addressTypes = [
+    { id: 'Home', label: 'Home', icon: Home },
+    { id: 'Work', label: 'Work', icon: Building },
+    { id: 'Other', label: 'Other', icon: MapPin }
+  ];
+
+// Outside of the component
+export const validateFormData = (formData: addressFormData): Record<string, string> => {
+  const newErrors: Record<string, string> = {};
+
+  if (!formData.receiverName.trim()) {
+    newErrors.receiverName = 'Receiver name is required';
+  }
+
+  if (!formData.receiverPhone.trim()) {
+    newErrors.receiverPhone = 'Phone number is required';
+  } else if (!/^\d{10}$/.test(formData.receiverPhone.replace(/\s/g, ''))) {
+    newErrors.receiverPhone = 'Please enter a valid 10-digit phone number';
+  }
+
+  if (!formData.completeAddress.trim()) {
+    newErrors.completeAddress = 'Complete address is required';
+  }
+
+  if (!formData.pincode.trim()) {
+    newErrors.pincode = 'Pincode is required';
+  } else if (!/^\d{6}$/.test(formData.pincode)) {
+    newErrors.pincode = 'Please enter a valid 6-digit pincode';
+  }
+
+  return newErrors;
+};
+
 export default function ManualAddressForm({ onClose, onAddressSaved, initialAddress }: ManualAddressFormProps) {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<addressFormData>({
     receiverName: '',
     receiverPhone: '',
     addressType: 'Home',
@@ -17,16 +51,13 @@ export default function ManualAddressForm({ onClose, onAddressSaved, initialAddr
     completeAddress: '',
     sector: '',
     landmark: '',
-    pincode: ''
+    pincode: '',
   });
 
+const setAddressForm = useShopFilterStore((state) => state.setAddressForm); // <- Add this
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const addressTypes = [
-    { id: 'Home', label: 'Home', icon: Home },
-    { id: 'Work', label: 'Work', icon: Building },
-    { id: 'Other', label: 'Other', icon: MapPin }
-  ];
+
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -36,60 +67,35 @@ export default function ManualAddressForm({ onClose, onAddressSaved, initialAddr
     }
   };
 
-  const validateForm = () => {
-    const newErrors: Record<string, string> = {};
+const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
+  const validationErrors = validateFormData(formData);
 
-    if (!formData.receiverName.trim()) {
-      newErrors.receiverName = 'Receiver name is required';
-    }
+  if (Object.keys(validationErrors).length > 0) {
+    setErrors(validationErrors);
+    return;
+  }
 
-    if (!formData.receiverPhone.trim()) {
-      newErrors.receiverPhone = 'Phone number is required';
-    } else if (!/^\d{10}$/.test(formData.receiverPhone.replace(/\s/g, ''))) {
-      newErrors.receiverPhone = 'Please enter a valid 10-digit phone number';
-    }
-
-    if (!formData.completeAddress.trim()) {
-      newErrors.completeAddress = 'Complete address is required';
-    }
-
-    if (!formData.pincode.trim()) {
-      newErrors.pincode = 'Pincode is required';
-    } else if (!/^\d{6}$/.test(formData.pincode)) {
-      newErrors.pincode = 'Please enter a valid 6-digit pincode';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+  const fullAddress = `${formData.completeAddress}, ${formData.area}, ${formData.sector}, ${formData.pincode}`;
+  const addressData = {
+    address: fullAddress,
+    receiverName: formData.receiverName,
+    receiverPhone: formData.receiverPhone,
+    addressType: formData.addressType,
+    area: formData.area,
+    completeAddress: formData.completeAddress,
+    sector: formData.sector,
+    landmark: formData.landmark,
+    pincode: formData.pincode,
+    type: 'manual' as const,
+    label: formData.addressType,
+    id: Date.now().toString()
   };
+  setAddressForm(addressData)
+  onAddressSaved?.(addressData);
+  onClose();
+};
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (validateForm()) {
-      const fullAddress = `${formData.completeAddress}, ${formData.area}, ${formData.sector}, ${formData.pincode}`;
-      
-      const addressData = {
-        address: fullAddress,
-        receiverName: formData.receiverName,
-        receiverPhone: formData.receiverPhone,
-        addressType: formData.addressType,
-        area: formData.area,
-        completeAddress: formData.completeAddress,
-        sector: formData.sector,
-        landmark: formData.landmark,
-        pincode: formData.pincode,
-        lat: 0, // Would be geocoded in real implementation
-        lon: 0,
-        type: 'manual' as const,
-        label: formData.addressType,
-        id: Date.now().toString()
-      };
-
-      onAddressSaved?.(addressData);
-      onClose()
-    }
-  };
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">

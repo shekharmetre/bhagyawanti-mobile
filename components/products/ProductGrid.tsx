@@ -4,10 +4,9 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import ProductCard from "./ProductCard";
 import { Product } from "@/lib/types";
-import { products as allProducts } from "@/lib/data";
 import { useFilterStore } from "@/store/filter";
 
-export default function ProductGrid() {
+export default function ProductGrid({allProducts=[]}:{allProducts:Product[]}) {
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const { category, subcategory, minPrice, maxPrice, searchQuery } = useFilterStore();
 
@@ -42,7 +41,7 @@ export default function ProductGrid() {
     }
 
     setFilteredProducts(filtered);
-  }, [category, subcategory, minPrice, maxPrice, searchQuery]);
+  }, [allProducts,category, subcategory, minPrice, maxPrice, searchQuery]);
 
   console.log(filteredProducts, "filtered one proudct")
 

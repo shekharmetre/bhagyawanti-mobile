@@ -9,26 +9,29 @@ import { ArrowLeft, LocateFixed, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { lazy, useEffect, useState } from "react";
-import location from "@/public/animte/location.json"
+import location from "@/public/animte/location.json";
 import { getCurrentLocation } from '@/hooks/get-location';
 import { useUniversalModal } from '@/hooks/universal-popup';
 import { getAddressFromCoordinates } from '@/hooks/use-location';
 import { FormLocationData, LocationData } from '@/lib/types';
 import ManualAddressForm from '@/components/modals/add-location-form';
+import { showToast } from '@/hooks/filtered-toast';
+
 const PaymentOptions = lazy(() => import('@/components/modals/payment-option'));
 
 export const CheckoutPage = () => {
   const [data, setData] = useState<LocationData | null>(null);
   const [isFetching, setIsFetching] = useState(false);
   const [locationError, setLocationError] = useState('');
-  const [userData, setUserData] = useState<FormLocationData>()
+  const [userData, setUserData] = useState<FormLocationData>();
   const { openModal, closeModal } = useUniversalModal();
   const { openModal: manualForm, closeModal: closeManualForm } = useUniversalModal();
+
   useEffect(() => {
     const savedLocation = localStorage.getItem('currentLocation');
     if (savedLocation) {
       const parsedLocation: LocationData = JSON.parse(savedLocation);
-      setData(parsedLocation); // or use it however you need
+      setData(parsedLocation);
     }
   }, []);
 
@@ -51,9 +54,7 @@ export const CheckoutPage = () => {
         type: 'current'
       };
 
-      // Save to localStorage
       localStorage.setItem('currentLocation', JSON.stringify(locationData));
-
       setData(locationData);
     } catch (error) {
       setLocationError('Failed to detect location');
@@ -62,6 +63,31 @@ export const CheckoutPage = () => {
     }
   };
 
+  const handleOpenManualForm = () => {
+    if (!data) {
+      showToast({ title: "Error", description: "Please provide location" });
+      return;
+    }
+
+
+    manualForm(
+      <ManualAddressForm
+        onAddressSaved={(addreData) => setUserData(addreData)}
+        initialAddress={data}
+        onClose={closeManualForm}
+      />
+    );
+  };
+
+  const handleProceedToPayment = () => {
+    if (!data) {
+      showToast({ title: "Error", description: "Please select or detect a location first." });
+      return;
+    }
+
+    // Your payment navigation or modal logic here
+    openModal(<PaymentOptions />);
+  };
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -104,48 +130,27 @@ export const CheckoutPage = () => {
             <div className="mt-5 flex gap-3 justify-between w-full">
               <div className="flex gap-3 w-full items-start  p-4 rounded-lg shadow-sm">
                 <MapPin color="red" fill="pink" className="mt-1" />
-
                 <div className="flex flex-col">
-                  {/* Main address */}
                   <h2 className="font-semibold text-lg text-gray-900">
                     {data.address.split(',')[0]}
                   </h2>
                   <p className="text-sm text-gray-600">
                     {data.address.split(',').slice(1).join(', ')}
                   </p>
-                  {userData && <div className="mt-2 text-sm text-gray-700 space-y-1">
-                    {userData?.receiverName && (
-                      <p>
-                        <span className="font-medium text-gray-800">Receiver:</span> {userData?.receiverName}
-                      </p>
-                    )}
-                    {userData?.receiverPhone && (
-                      <p>
-                        <span className="font-medium text-gray-800">Phone:</span> {userData?.receiverPhone}
-                      </p>
-                    )}
-                    {userData?.addressType && (
-                      <p>
-                        <span className="font-medium text-gray-800">Type:</span> {userData?.addressType}
-                      </p>
-                    )}
-                    {userData?.landmark && (
-                      <p>
-                        <span className="font-medium text-gray-800">Landmark:</span> {userData?.landmark}
-                      </p>
-                    )}
-                    {userData?.pincode && (
-                      <p>
-                        <span className="font-medium text-gray-800">Pincode:</span> {userData?.pincode}
-                      </p>
-                    )}
-                  </div>}
-                  {/* Extra details */}
 
+                  {userData && (
+                    <div className="mt-2 text-sm text-gray-700 space-y-1">
+                      {userData.receiverName && <p><span className="font-medium text-gray-800">Receiver:</span> {userData.receiverName}</p>}
+                      {userData.receiverPhone && <p><span className="font-medium text-gray-800">Phone:</span> {userData.receiverPhone}</p>}
+                      {userData.addressType && <p><span className="font-medium text-gray-800">Type:</span> {userData.addressType}</p>}
+                      {userData.landmark && <p><span className="font-medium text-gray-800">Landmark:</span> {userData.landmark}</p>}
+                      {userData.pincode && <p><span className="font-medium text-gray-800">Pincode:</span> {userData.pincode}</p>}
+                    </div>
+                  )}
                 </div>
               </div>
 
-              <h4 onClick={() => manualForm(<ManualAddressForm onAddressSaved={(addreData) => setUserData(addreData)} initialAddress={data} onClose={closeManualForm} />)} className="underline cursor-pointer hover:text-blue-600 underline-offset-1 text-orange-500 font-semibold text-xl">
+              <h4 onClick={handleOpenManualForm} className="underline cursor-pointer hover:text-blue-600 underline-offset-1 text-orange-500 font-semibold text-xl">
                 Change
               </h4>
             </div>
@@ -157,7 +162,7 @@ export const CheckoutPage = () => {
 
       <Button
         variant="secondary"
-        onClick={() => openModal(<PaymentOptions  onclose={closeModal} />)}
+        onClick={handleProceedToPayment}
         className="bg-blue-600 mt-5 w-full"
       >
         Proceed To Payment
@@ -165,4 +170,3 @@ export const CheckoutPage = () => {
     </div>
   );
 };
-
