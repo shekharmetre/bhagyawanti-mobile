@@ -2,6 +2,7 @@
 import { useQuery, useMutation, UseQueryOptions } from '@tanstack/react-query';
 import { showToast } from '../filtered-toast';
 type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
+import axios, { AxiosRequestConfig } from 'axios';
 
 type ApiResponse<T> = {
   success: boolean;
@@ -123,4 +124,70 @@ export function useApiMutation<T = any>({
     },
   });
 }
+
+
+
+
+
+interface UseAxiosApiProps<T> {
+  endpoint: string;
+  method?: 'POST' | 'PUT' | 'PATCH' | 'DELETE';
+  onSuccess?: (data: T) => void;
+  onError?: (err: any) => void;
+  token?: string;
+}
+
+export function useAxiosApiMutation<T = any>({
+  endpoint,
+  method = 'POST',
+  onSuccess,
+  onError,
+  token,
+}: UseAxiosApiProps<T>) {
+  return useMutation<ApiResponse<T>, Error, any>({
+    mutationFn: async (body) => {
+      const isFormData = body instanceof FormData;
+
+      const config: AxiosRequestConfig = {
+        method,
+        url: `/api/bun${endpoint}`,
+        data: body,
+        withCredentials: true,
+        headers: {
+          ...(isFormData ? {} : { 'Content-Type': 'application/json' }),
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
+      };
+
+      const response = await axios.request<ApiResponse<T>>(config);
+      if (!response.data.success) {
+        throw new Error(response.data.error || 'API Error');
+      }
+      return response.data;
+    },
+
+    onSuccess: (data) => {
+      if (endpoint.includes('/login')) {
+        showToast({
+          title: 'success',
+          description: 'Login successful!',
+        });
+      } else {
+        showToast({
+          title: 'success',
+          description: (data as any)?.data?.message ?? 'Action successful',
+        });
+      }
+      if (data.data !== undefined) {
+        onSuccess?.(data.data);
+      }
+    },
+
+    onError: (err: any) => {
+      showToast({ title: 'Error', description: err.message });
+      onError?.(err);
+    },
+  });
+}
+
 

@@ -1,13 +1,9 @@
 
 import Contact from "@/components/home/contact-us";
 import DailyOffersCarousel from "@/components/home/DailyOffersCarousel";
-import NewArrivalWrapper from "@/components/home/new-arrival";
 import { ProductSection } from "@/components/layout/product-section";
-import ProductShow from "@/components/products/product-page";
-import { ProductCardMinimal } from "@/components/shop/shopIds-section/compact-card";
 import ShopDetailCard from "@/components/shop/shopIds-section/shopDetailCard";
 import { TestimonialSection } from "@/components/shop/shopIds-section/testimonial";
-import UnistSliderWrapper from "@/components/ui/slide2";
 import { offersCarousel } from "@/lib/data";
 import { products as newArrivalData } from "@/lib/data";
 

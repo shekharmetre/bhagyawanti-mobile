@@ -33,6 +33,7 @@ export default function PaymentPage() {
       mutate({ token });
     }
   }, [token, mutate]);
+  console.log(data?.data.user)
   
 
   return (

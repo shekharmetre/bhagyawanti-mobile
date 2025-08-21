@@ -8,7 +8,7 @@ import { ExtraInfoItem } from "@/lib/types";
 
 interface RepairExtraDetailsProps {
   onChange?: (items: ExtraInfoItem[]) => void;
-  disabled:boolean
+  disabled:boolean;
 }
 
 export default function RepairExtraDetails({ onChange ,disabled}: RepairExtraDetailsProps) {

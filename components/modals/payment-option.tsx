@@ -16,8 +16,9 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { isEmail } from '@/lib/helper';
 import { supabse } from '@/config/supbase-client';
+import { LocationData } from '@/lib/types';
 
-export default function PaymentOptions({ onclose }: { onclose?: () => void }) {
+export default function PaymentOptions({ onclose, location }: { onclose?: () => void, location: LocationData }) {
 
     const [selectedOption, setSelectedOption] = useState<'advance' | 'full' | null>(null);
     const [showAdvanceInfo, setShowAdvanceInfo] = useState(false);
@@ -25,7 +26,7 @@ export default function PaymentOptions({ onclose }: { onclose?: () => void }) {
     const [accessToken, setAccessToken] = useState<string | null>(null);
     const [email, setEmail] = useState<string | null>(null);
 
-    const { items, totalPrice, user: userEmail } = useCartStore();
+    const { items, totalPrice } = useCartStore();
     const router = useRouter();
     const remainingAmount = totalPrice - 5;
 
@@ -40,44 +41,60 @@ export default function PaymentOptions({ onclose }: { onclose?: () => void }) {
                 setAccessToken(session.access_token);
             }
         };
-
         getSession();
     }, []);
 
-
     const handleContinue = async () => {
         if (!accessToken || !isEmail(email as string)) {
-            showToast({ title: "Error", description: "You're not authorised Please login. Wait... we are loggin" });
-            setTimeout(() => {
-                router.push(`/login?redirect=checkout`)
-            }, 5000)
+            showToast({
+                title: "Error",
+                description: "You're not authorised. Redirecting to login...",
+            });
             onclose?.();
+            setTimeout(() => {
+                router.push(`/login?redirect=checkout`);
+            }, 2000);
             return;
         }
 
         try {
             setLoading(true);
-            const amountToPay = selectedOption === 'advance' ? '1' : `${totalPrice}`;
 
-            const response = await axios.post('/api/bun/user/auth/payment', {
-                items,
-                totalPrice: amountToPay,
-                email: email,
-            },
+            const amountToPay =
+                selectedOption === "advance" ? 1 : totalPrice;
+
+            const response = await axios.post(
+                "/api/bun/user/auth/payment",
+                {
+                    items,
+                    amountToPay,
+                    balanceAmount: totalPrice - amountToPay,
+                    location,
+                    category : "mobile_accessory",
+                    delivery : "home_delivery",
+                },
                 {
                     headers: {
-                        'Authorization': `Bearer ${accessToken}`, // ✅ Token added here
-                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${accessToken}`,
+                        "Content-Type": "application/json",
                     },
-                    withCredentials: true, // Optional, if your backend requires cookies too
-                });
-            console.log(response)
+                }
+            );
+
             const paymentData = response.data?.data?.paymentParams;
+
+            console.log(paymentData,"succesdf")
+
             if (!paymentData) {
-                showToast({ title: 'Payment Error', description: response.data?.error || 'Unknown error' });
+                showToast({
+                    title: "Payment Error",
+                    description: response.data?.error || "This transaction pament alreaedy paid",
+                });
                 return;
             }
 
+            // Optional: handle PayU form submit here if you want
+            console.log("Payment data ready:", paymentData);
             const form = document.createElement('form');
             form.method = 'POST';
             form.action = 'https://secure.payu.in/_payment';
@@ -92,20 +109,20 @@ export default function PaymentOptions({ onclose }: { onclose?: () => void }) {
             });
             document.body.appendChild(form);
             form.submit();
+
         } catch (err: any) {
-            console.log(err, "Error during payment");
+            console.log(err,"erro sdon")
             showToast({
-                title: 'Error',
+                title: "Error",
                 description:
-                    err?.response?.data?.error
-                        ? err.response.data.error
-                        : 'Something went wrong. Please try again later.',
+                    err?.response?.data?.error ||
+                    "Something went wrong. Please try again later.",
             });
         } finally {
-            console.log("succesfull u got")
             setLoading(false);
         }
     };
+
 
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-2 sm:p-4 z-50">

@@ -86,7 +86,7 @@ export const CheckoutPage = () => {
     }
 
     // Your payment navigation or modal logic here
-    openModal(<PaymentOptions />);
+    openModal(<PaymentOptions onclose={closeModal} location={data} />);
   };
 
   return (

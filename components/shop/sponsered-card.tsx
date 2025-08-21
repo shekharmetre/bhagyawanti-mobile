@@ -65,7 +65,7 @@ export function SponserCard({ shop }: ShopCardProps) {
 
   return (
     <Card
-      onClick={()=>handleRedirectToShop(shop.id)}
+     
       className={`group cursor-pointer mr-2 relative transition-all duration-300 hover:scale-[1.02] hover:shadow-card-hover bg-yellow-100
         ${shop.isSponsered ? 'bg-yellow-100 border pb-2 border-yellow-300' : ""}
         flex flex-col h-full`}
@@ -79,6 +79,7 @@ export function SponserCard({ shop }: ShopCardProps) {
             width={500}
             height={300}
             className="w-full md:h-48 h-36 object-cover rounded-t-md"
+             onClick={()=>handleRedirectToShop(shop.id)}
           />
         ) : (
           <div className="w-full h-48 flex items-center justify-center bg-gray-100">

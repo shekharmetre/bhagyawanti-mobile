@@ -379,54 +379,68 @@ export const categories: CategoryInfo[] = [
     slug: "chargers",
     description: "High-quality chargers from standard to original",
     image: "/category/chargers.png",
+    link: "/products?category=chargers"
   },
   {
     name: "Cables",
     slug: "cables",
     description: "Durable cables for all your devices",
-    image: "/category/cables.png"
+    image: "/category/cables.png",
+    link: "/products?category=cables"
   },
   {
     name: "Audio",
     slug: "audio",
     description: "Premium headphones and wireless earbuds",
-    image: "/category/audio.png"
+    image: "/category/audio.png",
+    link: "/products?category=audio"
+
   },
   {
     name: "Protection",
     slug: "protection",
     description: "Screen protectors and cases for ultimate device safety",
-    image: "/category/protection.png"
+    image: "/category/protection.png",
+    link: "/products?category=protection"
+
   },
   {
     name: "Accessories",
     slug: "accessories",
     description: "Essential accessories to enhance your mobile experience",
     image: "/category/accessories.png",
+    link: "/products"
+
   },
   {
     name: "Mobile Parts",
     slug: "accessories",
     description: "Original spare parts for phone repairs and replacements",
-    image: "/category/repair.png"
+    image: "/category/repair.png",
+    link: "/repair"
+
   },
   {
     name: "SIM & Recharge Services",
     slug: "sim",
     description: "Buy new SIM cards and recharge your mobile easily",
-    image: "/category/sim.png"
+    image: "/category/sim.png",
+    link: "/recharges"
+
   },
   {
     name: "Used / Exchange Phones",
     slug: "mobile",
     description: "Affordable pre-owned phones and great exchange offers",
-    image: "/category/refurbished.png"
+    image: "/category/refurbished.png",
+    link: "/used-phone?retailers=4588dfg88e55r5"
   },
   {
     name: "Repair & Services",
     slug: "accessories",
     description: "Expert mobile phone repairs and maintenance services",
-    image: "/category/repair.png"
+    image: "/category/repair.png",
+    link: "/repair"
   }
 ];
 
@@ -453,7 +467,7 @@ export const testimonials = [
     content: "I've tried many chargers, and the premium fast charger is by far the best. My phone charges in minutes!",
     avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg"
   }
-];
+]; 
 
 
 // Export the array with the type
@@ -468,6 +482,8 @@ export const repairVideos: RepairVideoType[] = [
     timeEstimate: '20-30 mins',
     toolsRequired: ['Pry tool', 'Screwdriver', 'New battery'],
     note: 'Useful when battery drains quickly or doesn’t charge.',
+    price : "800-2000",
+    options : ["if user has double couted battery should be price high ","mostly like above OnPlus 6t , and samsung New Series, or etc"],
     reasons: [
       'Battery drains too fast',
       'Device shuts down randomly',
@@ -490,7 +506,9 @@ export const repairVideos: RepairVideoType[] = [
       'Voice recording not working',
       'Mic muffled or low sound',
       'Voice commands not detected'
-    ]
+    ],
+    price : "150 - 350",
+    options : ["350 Rs For Android ", "Keypad any Phone Should be Done by 150-120"]
   },
   {
     id: 'motherboard',
@@ -502,6 +520,10 @@ export const repairVideos: RepairVideoType[] = [
     timeEstimate: '1-2 hours',
     toolsRequired: ['Soldering iron', 'Multimeter', 'Microscope'],
     note: 'Only attempt if you’re experienced or have the right equipment.',
+    price :" 600-3000",
+    options : [
+      "if Mobile On there gaining another any issue then it could be done by 600 or lower","if mobile Full dead not any reaction then it might be 800-1200", "if totally need to replace motherboard then should be more that 2000 "
+    ],
     reasons: [
       'Phone doesn’t turn on at all',
       'No display or boot loop issue',
@@ -524,7 +546,9 @@ export const repairVideos: RepairVideoType[] = [
       'Device doesn’t lock/sleep',
       'Button stuck or loose',
       'Inconsistent response on press'
-    ]
+    ],
+    price : "150-450",
+    options : ["if key pad phones any button will replace by 100","if SmartPhone seperated Fingersensor (inside button available) it might be 150", "if With Sensor should be might 300-450 between","if consigned three at one strip it should done by only 150"],
   },
   {
     id: 'volume-button',
@@ -536,6 +560,8 @@ export const repairVideos: RepairVideoType[] = [
     timeEstimate: '15-25 mins',
     toolsRequired: ['Pry tool', 'Screwdriver', 'Replacement buttons'],
     note: 'Use this guide if your volume buttons are stuck or unresponsive.',
+    price : "150",
+    options : ["if consigned three at one strip it should done by only 150","if Seperated also done by 150"],
     reasons: [
       'Volume button stuck or broken',
       'Can’t increase or decrease volume',
@@ -553,6 +579,8 @@ export const repairVideos: RepairVideoType[] = [
     timeEstimate: '30-45 mins',
     toolsRequired: ['Pry tools', 'Screwdriver', 'New screen'],
     note: 'Perfect for broken, cracked, or unresponsive screens.',
+    price : "800-2500",
+    options : ["if Lcd Screen it might be 800-1200","if there screen Finger Display might be 1200-1800", "If Originated Display but just Few cracks it might be done under 800","50–50 chance to keep your original display if touch glass is removed safely","If not, full display replacement needed"],
     reasons: [
       'Cracked or shattered screen',
       'Touch not working',
@@ -575,7 +603,9 @@ export const repairVideos: RepairVideoType[] = [
       'Sound is distorted or crackling',
       'Speaker works only with headphones',
       'Low volume even at max setting'
-    ]
+    ],
+    price : "150-350",
+    options : ["if keyPad Handset Done by 150","if U diding hearing anything might be 200","if hearing but speaker not clear blur it would fully replaced by 350"],
   },
   {
     id: 'water-damage',
@@ -587,6 +617,8 @@ export const repairVideos: RepairVideoType[] = [
     timeEstimate: '45-60 mins',
     toolsRequired: ['Isopropyl alcohol', 'Ultrasonic cleaner', 'Brass brush'],
     note: 'Must try immediately after water exposure. Remove battery if possible.',
+    price : "200-1500",
+    options : ["if mobile once on then after that not any movement it would be done by above 600-800","if normal Issue without damaging or replacing iC it should be 300(as a service charge)", "if normal battery Boost some low level service done by 200", "if any Ic Damage not sure to repair if repaired Might be 600-800", 'if not responfing Mobile Phone it might be Dead.',"it done by Under MotherBoard Repair Conditions"],
     reasons: [
       'Phone dropped in water',
       'Screen not turning on after water',

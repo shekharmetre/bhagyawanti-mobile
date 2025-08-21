@@ -89,7 +89,7 @@ export default function DailyOffersCarousel({
                   src={offer.image}
                   alt={offer.alt || `Offer banner ${idx + 1}`}
                   width={500}
-                  height={300}
+                  height={500}
                   className={`${imageClassName}`}
                   draggable={false}
                   unoptimized={true}

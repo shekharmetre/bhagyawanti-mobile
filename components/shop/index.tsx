@@ -5,7 +5,6 @@ import { useDebounce } from "use-debounce";
 import { useShopLocationStore } from "@/store/shop-location";
 import { showToast } from "@/hooks/filtered-toast";
 import { ShopData } from "@/lib/types";
-
 import { SearchForm } from "@/hooks/search-form";
 import { Tag, CircleAlert } from "lucide-react";
 import UnistSliderWrapper from "../ui/slide2";
@@ -13,8 +12,8 @@ import { SponserCard } from "./sponsered-card";
 import { HorizontalShopCard } from "./horizontal-card";
 import { useApiMutation } from "@/hooks/api/secureapi";
 
-const LAT = 12.959744; // You can replace with dynamic or location.lat
-const LNG = 77.6208384; // Same as above
+const FALLBACK_LAT = 12.959744;
+const FALLBACK_LNG = 77.6208384;
 const RADIUS = 1500;
 
 export function ShopSection() {
@@ -24,21 +23,35 @@ export function ShopSection() {
   const location = useShopLocationStore((state) => state.location);
   const setLocation = useShopLocationStore((state) => state.setLocation);
 
-  // Local states for mutation data management
   const [shops, setShops] = useState<ShopData[]>([]);
   const [error, setError] = useState<string | null>(null);
 
-  // get location if not already set
+  const { mutate, isPending } = useApiMutation({
+    endpoint: "/geo/api/shops",
+    onSuccess: (data: any) => {
+      setShops(data || []);
+      setError(null);
+    },
+    onError: (err: any) => {
+      setError(err?.message || "Something went wrong");
+      setShops([]);
+    },
+  });
+
+  // 🔹 Get location from Zustand or Browser once
   useEffect(() => {
-    if (location?.lat && location?.lng) return;
+    if (location?.lat && location?.lng) return; // Already in Zustand
 
     if (!navigator.geolocation) {
       showToast({
         title: "Geolocation not supported",
         description: "Your browser does not support geolocation.",
       });
+      // Optional: fallback to default so fetch still runs
+      setLocation({ lat: FALLBACK_LAT, lng: FALLBACK_LNG });
       return;
     }
+
     navigator.geolocation.getCurrentPosition(
       (position) => {
         setLocation({
@@ -51,44 +64,25 @@ export function ShopSection() {
           title: "Location Permission Denied",
           description: "Please allow location permission for better results.",
         });
+        // Optional fallback
+        setLocation({ lat: FALLBACK_LAT, lng: FALLBACK_LNG });
       },
       { enableHighAccuracy: true, timeout: 10000 }
     );
   }, [location?.lat, location?.lng, setLocation]);
 
-  // Use your mutate for fetching shops
-  const { mutate, isPending } = useApiMutation({
-    endpoint: "/geo/api/shops",
-    onSuccess: (data: any) => {
-      setShops(data);
-      setError(null);
-    },
-    onError: (err: any) => {
-      setError(err?.message || "Something went wrong");
-      setShops([]);
-    },
-  });
-
-  // Fetch shops on mount when location available
+  // 🔹 Fetch shops only when lat/lng are available AND change
   useEffect(() => {
-    const latToUse = location?.lat ?? LAT;
-    const lngToUse = location?.lng ?? LNG;
-
-    // Prepare body (you can send as plain object or FormData)
-    const body = { lat: latToUse, lng: lngToUse, radius: RADIUS };
-    handleRefetch()
-  }, [location?.lat, location?.lng, mutate]);
-
-  // Refetch function
-  const handleRefetch = useCallback(() => {
-    const latToUse = location?.lat ?? LAT;
-    const lngToUse = location?.lng ?? LNG;
-    const body = { lat: latToUse, lng: lngToUse, radius: RADIUS };
+    if (!location?.lat || !location?.lng) return; // wait until location available
+    const body = {
+      lat: location.lat,
+      lng: location.lng,
+      radius: RADIUS,
+    };
     mutate(body);
   }, [location?.lat, location?.lng, mutate]);
 
   const hasSearch = debouncedSearch.trim().length > 1;
-
   const filteredShops = hasSearch
     ? shops.filter(
         (shop) =>
@@ -100,32 +94,27 @@ export function ShopSection() {
   const sponsors = !hasSearch ? filteredShops.slice(0, 8) : [];
   const allProducts = hasSearch ? filteredShops : filteredShops.slice(8);
 
-  if (isPending)
-    return (
-      <div className="p-4 text-center text-gray-600">Loading shops near you...</div>
-    );
+  if (isPending && shops.length === 0) {
+    return <div className="p-4 text-center text-gray-600">Loading shops near you...</div>;
+  }
 
-  if (error)
+  if (error) {
     return (
-      <div className="p-4 text-center text-red-600 font-semibold">Error loading shops: {error}</div>
+      <div className="p-4 text-center text-red-600 font-semibold">
+        Error loading shops: {error}
+      </div>
     );
+  }
 
   return (
     <section className="px-2 md:px-4 lg:px-8">
       <div className="flex flex-col-reverse md:flex-row md:justify-between md:items-center mb-4 gap-4">
         {!hasSearch && (
-          <h2 className="font-sans text-md sm:text-lg md:text-2xl lg:text-3xl font-extrabold text-start md:text-left leading-snug md:leading-tight tracking-tight text-gray-900 w-full md:max-w-xl lg:max-w-3xl">
+          <h2 className="font-sans text-md sm:text-lg md:text-2xl lg:text-3xl font-extrabold">
             Top 10 Mobile Repair & Retail Shops in your area
           </h2>
         )}
         <SearchForm onSearch={(val) => setSearch(val)} />
-        <button
-          onClick={handleRefetch}
-          disabled={isPending}
-          className="ml-4 p-2 border rounded bg-blue-600 text-white disabled:opacity-50"
-        >
-          {isPending ? "Loading..." : "Refetch Shops"}
-        </button>
       </div>
 
       {!hasSearch && sponsors.length > 0 && (
@@ -150,15 +139,15 @@ export function ShopSection() {
               1024: 5.2,
             }}
           >
-            {sponsors.map((item, index) => (
-              <SponserCard shop={item} key={`${item.id}-${index}`} />
+            {sponsors.map((item, i) => (
+              <SponserCard shop={item} key={`${item.id}-${i}`} />
             ))}
           </UnistSliderWrapper>
         </>
       )}
 
       <div className="grid grid-cols-1 gap-4">
-        <HorizontalShopCard allProducts={allProducts} />
+        <HorizontalShopCard allProducts={allProducts} keyId="sdlkfjskldfj" />
       </div>
     </section>
   );

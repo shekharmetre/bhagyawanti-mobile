@@ -14,6 +14,33 @@ interface NewArrivalProps {
     showPagination?: boolean
 }
 
+//   <div className="w-full overflow-x-auto">
+//           <div className="flex gap-1">
+//             {newArrivalData && newArrivalData.length > 0 ? (
+//               newArrivalData.map((item, idx) => (
+//                 <ProductShow
+//                   product={item}
+//                   key={item.id ? `offer-${item.id}` : `offer-idx-${idx}`}
+//                   showPercentage={true}
+//                   cartOption="hidden"
+//                 />
+//               ))
+//             ) : (
+//               <>
+//                 <ProductShow
+//                   product={defaultProducts[0]}
+//                   key="default-product-offer"
+//                   showPercentage={true}
+//                   cartOption="hidden"
+//                 />
+//                 {Array.from({ length: SKELETON_COUNT }).map((_, i) => (
+//                   <div key={`offer-skeleton-${i}`} className={CARD_CLASSES} />
+//                 ))}
+//               </>
+//             )}
+//           </div>
+//         </div>
+
 export default function NewArrivalWrapper({
     products,
     badgeText = "New",

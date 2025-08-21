@@ -1,12 +1,8 @@
 "use client";
 
-import { Filter, Mic, Search } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { usePathname } from "next/navigation";
-import { useFilterStore } from "@/store/filter";
-import { useState, useRef } from "react";
-import { Button } from "@/components/ui/button";
+import {  Mic, Search } from "lucide-react";
 
+import { useState, useRef } from "react";
 // Declare the SpeechRecognition interfaces
 interface SpeechRecognitionEvent extends Event {
   results: SpeechRecognitionResultList;
@@ -88,9 +84,9 @@ export function SearchForm({
         placeholder="Search..."
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
-        className="flex-1 p-1 py-2 border-none outline-none bg-muted focus:ring-0"
+        className="md:flex-1 p-1 py-2 border-none outline-none bg-muted focus:ring-0"
       />
-      <div className="flex items-center gap-2 pl-2">
+      <div className="flex items-center gap-2 md:pl-2">
         <button type="submit" className="bg-orange-500 p-2 rounded-full">
           <Search className="h-4 w-4" />
         </button>
