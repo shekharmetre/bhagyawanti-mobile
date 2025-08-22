@@ -37,7 +37,7 @@ export function IntroMobile({
     selection: 'repair',
     brand: pBrand ?? '',
     modelName: pModelName ?? '',
-    video: null as RepairVideoType | null,
+    video: {name : "",price : ""},
     optional: [] as ExtraInfoItem[],
   });
 
@@ -163,7 +163,8 @@ export function IntroMobile({
 
       {/* Repair Section */}
       <RepairSection
-        selectedRepair={(video: RepairVideoType) =>
+      video={formData.video}
+        selectedRepair={(video: any) =>
           setFormData((prev) => ({ ...prev, video }))
         }
         disabled={loading}

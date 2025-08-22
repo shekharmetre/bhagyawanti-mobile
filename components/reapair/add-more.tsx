@@ -5,19 +5,18 @@ import { Bold, Italic, Video, Trash2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ExtraInfoItem } from "@/lib/types";
 
-
 interface RepairExtraDetailsProps {
   onChange?: (items: ExtraInfoItem[]) => void;
-  disabled:boolean;
+  disabled: boolean;
 }
 
-export default function RepairExtraDetails({ onChange ,disabled}: RepairExtraDetailsProps) {
+export default function RepairExtraDetails({ onChange, disabled }: RepairExtraDetailsProps) {
   const [infoItems, setInfoItems] = useState<ExtraInfoItem[]>([]);
   const [text, setText] = useState("");
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
-  // Debounce text input
+  // Debounce text input -> send a "typing-preview" item via onChange
   useEffect(() => {
     if (!text.trim()) return;
 
@@ -27,16 +26,19 @@ export default function RepairExtraDetails({ onChange ,disabled}: RepairExtraDet
         type: "text",
         content: text,
       };
-      onChange?.([...infoItems.filter((item) => item.id !== "typing-preview"), tempItem]);
+      onChange?.([
+        ...infoItems.filter((item) => item.id !== "typing-preview"),
+        tempItem,
+      ]);
     }, 800); // trigger after 800ms of no typing
 
     return () => clearTimeout(timeout);
-  }, [text]);
+  }, [text, infoItems, onChange]);
 
   // Trigger when infoItems change (except from typing preview)
   useEffect(() => {
     onChange?.(infoItems);
-  }, [infoItems]);
+  }, [infoItems, onChange]); // fixed: was 'onchange'
 
   const handleAddText = () => {
     if (text.trim()) {
@@ -106,7 +108,7 @@ export default function RepairExtraDetails({ onChange ,disabled}: RepairExtraDet
                     </div>
                   ) : (
                     <button
-                    disabled={disabled}
+                      disabled={disabled}
                       onClick={() => setActiveVideo(item.content)}
                       className="md:w-20 w-10 h-10 md:h-20 overflow-hidden border rounded-md bg-black"
                     >
@@ -148,7 +150,7 @@ export default function RepairExtraDetails({ onChange ,disabled}: RepairExtraDet
         <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center">
           <div className="relative bg-white rounded-md overflow-hidden shadow-xl w-full max-w-lg">
             <button
-            disabled={disabled}
+              disabled={disabled}
               onClick={() => setActiveVideo(null)}
               className="absolute top-2 right-2 bg-white text-black rounded-full shadow-md p-1 cursor-pointer hover:bg-gray-100 z-10"
             >

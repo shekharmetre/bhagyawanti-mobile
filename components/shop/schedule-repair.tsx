@@ -23,6 +23,7 @@ import { buildOrderDate } from '@/lib/helper';
 import { supabse } from '@/config/supbase-client';
 import { showToast } from '@/hooks/filtered-toast';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 interface RepairSchedulingModalProps {
     isOpen: boolean;
@@ -30,7 +31,7 @@ interface RepairSchedulingModalProps {
     selectedDevice?: {
         brand: string;
         modelName: string;
-        repairType: { name: string, price: string };
+        repairType: { name: string, price: string } | null;
     };
     shopDetail?: ShopData | null;
     access_token: string
@@ -80,10 +81,10 @@ export const RepairSchedulingModal: React.FC<RepairSchedulingModalProps> = ({
                 router.push("/login?redirect=/shop")
             }, 2000)
         }
-        if (!selectedDate) {
+        if (!selectedDate || !selectedDevice.repairType) {
             return console.log("not found")
         }
-        mutate({ category: "repair", delivery: "in_shop", orderDate: buildOrderDate(new Date(selectedDate), selectedTime), totalPrice: selectedDevice.repairType.price, location: { name: shopDetail?.name, maps_url: shopDetail?.maps_url, address: shopDetail?.address }, device: selectedDevice, notes, })
+        mutate({ category: "repair", delivery: "in_shop", orderDate: buildOrderDate(new Date(selectedDate), selectedTime), totalPrice:selectedDevice.repairType.price, location: { name: shopDetail?.name, maps_url: shopDetail?.maps_url, address: shopDetail?.address }, device: selectedDevice, notes, })
     };
 
     if (!isOpen) return null;
@@ -167,7 +168,7 @@ export const RepairSchedulingModal: React.FC<RepairSchedulingModalProps> = ({
                                             {/* Repair Issue Badges */}
                                             <div className="bg-red-50 rounded px-2 py-1 border border-red-200 ml-auto flex items-center gap-1">
                                                 <Wrench className="w-3 h-3 text-red-600" />
-                                                <span className="text-xs font-medium text-red-700">{selectedDevice.repairType.name}</span>
+                                                <span className="text-xs font-medium text-red-700">{selectedDevice?.repairType?.name ?? 'select repair'}</span>
                                             </div>
                                         </div>
                                         {/* Shop Info Row */}
@@ -175,7 +176,9 @@ export const RepairSchedulingModal: React.FC<RepairSchedulingModalProps> = ({
                                             <div className="flex items-center gap-2 mt-4 p-2 bg-white rounded-xl shadow border border-gray-100">
                                                 {/* Shop Image */}
                                                 <div className="w-10 h-10 rounded-lg overflow-hidden border border-gray-100 flex-shrink-0">
-                                                    <img
+                                                    <Image 
+                                                    width={200}
+                                                    height={200}
                                                         src={shopDetail.photos?.[0] ?? ''}
                                                         alt={shopDetail.name || 'Shop Image'}
                                                         className="object-cover w-full h-full"
@@ -267,7 +270,7 @@ export const RepairSchedulingModal: React.FC<RepairSchedulingModalProps> = ({
                                                 </div>
                                                 <div className="flex justify-between">
                                                     <span className="text-gray-600">Service:</span>
-                                                    <span className="font-medium">{selectedDevice.repairType.name}</span>
+                                                    <span className="font-medium">{selectedDevice.repairType?.name ?? 'Select repair'}</span>
                                                 </div>
                                             </div>
                                         </motion.div>

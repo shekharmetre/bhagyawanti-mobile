@@ -3,12 +3,13 @@
 import { Star, Quote, ArrowLeft, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface RetailerReview {
     id: number;
     name: string;
     role?: string;                    // Customer role optional or could be like "Verified Buyer"
-    shopName: string;                 // Store or shop name
+    shopName?: string;                 // Store or shop name
     image: string;                   // Customer image or shop logo
     content: string;                 // Review or feedback content
     rating: number;                  // Rating (1-5 stars)
@@ -16,7 +17,9 @@ interface RetailerReview {
     serviceExperience?: string;     // Comments about repair/service quality
     productExperience?: string;     // Comments about mobile/accessory product
     date?: string;                  // Date of review or purchase
-    verified?: boolean;             // Verified buyer or service user
+    verified?: boolean;     
+    company? : string ;
+    companyLogo? : string;       // Verified buyer or service user
 }
 
 
@@ -186,7 +189,10 @@ export const TestimonialSection = () => {
 
                                 <div className="hidden md:flex items-center gap-4">
                                     <div className="relative">
-                                        <img
+                                        <Image
+                                        width={200}
+                                        height={200}
+
                                             src={t.image}
                                             alt={t.name}
                                             className="w-16 h-16 rounded-full object-cover ring-4 ring-primary/20"
@@ -201,13 +207,13 @@ export const TestimonialSection = () => {
                                             {t.name}
                                         </h4>
                                         <p className="text-muted-foreground">
-                                            {t.role} at {t.company}
+                                            {t.role} at {t.shopName}
                                         </p>
                                     </div>
 
                                     <div className="hidden sm:block">
                                         <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center text-white font-bold text-sm">
-                                            {t.companyLogo}
+                                            {t.name}
                                         </div>
                                     </div>
                                 </div>
@@ -217,7 +223,7 @@ export const TestimonialSection = () => {
                             <div className="lg:col-span-1 flex justify-center">
                                 <div className="relative">
                                     <div className="w-48 h-48 rounded-3xl overflow-hidden ring-8 ring-primary/10 shadow-elegant">
-                                        <img
+                                        <Image width={500} height={500}
                                             src={t.image}
                                             alt={t.name}
                                             className="w-full h-full object-cover"
@@ -288,7 +294,7 @@ export const TestimonialSection = () => {
                             </blockquote>
 
                             <div className="flex items-center gap-3">
-                                <img
+                                <Image width={500} height={500}
                                     src={testimonial.image}
                                     alt={testimonial.name}
                                     className="w-12 h-12 rounded-full object-cover ring-2 ring-primary/20"
@@ -301,11 +307,11 @@ export const TestimonialSection = () => {
                                         {testimonial.role}
                                     </p>
                                     <p className="text-primary text-xs font-medium">
-                                        {testimonial.company}
+                                        {testimonial.shopName}
                                     </p>
                                 </div>
                                 <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center text-white font-bold text-xs">
-                                    {testimonial.companyLogo}
+                                    {testimonial.name}
                                 </div>
                             </div>
                         </motion.div>

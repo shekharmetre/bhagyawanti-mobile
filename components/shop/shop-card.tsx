@@ -18,8 +18,8 @@ import { AnimatedSuccessButton } from '../ui/animated-success-button';
 import { showToast } from '@/hooks/filtered-toast';
 import { useRouter } from 'next/navigation';
 
-export const ShopCard = ({ shopData }: { shopData: ShopData }) => {
-  const phoneNumber = shopData.phone || '90360929452';
+export const ShopCard = ({ shopData,keyid }: { shopData: ShopData,keyid:string }) => {
+  const phoneNumber = '90360929452';
   const navigate = useRouter()
   const buttonVariants = {
     whileHover: { scale: 1.05 },
@@ -79,7 +79,7 @@ export const ShopCard = ({ shopData }: { shopData: ShopData }) => {
     }
 
   return (
-    <div className="flex flex-col md:flex-row gap-3 md:gap-6 p-3 rounded-lg border shadow-sm bg-white cursor-pointer" onClick={()=>handleRedirectToShop(shopData.id)}>
+    <div key={keyid} className="flex flex-col md:flex-row gap-3 md:gap-6 p-3 rounded-lg border shadow-sm bg-white cursor-pointer" onClick={()=>handleRedirectToShop(shopData.id)}>
       {shopData.photos?.[0] ? (
         <ImageLeftRightArrow images={imagessd} alt={shopData.name} />
       ) : (

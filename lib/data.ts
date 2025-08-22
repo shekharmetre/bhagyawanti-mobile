@@ -1,4 +1,5 @@
-import { Product, CategoryInfo, RepairVideoType } from "./types";
+import { Grid, Headphones, Package, Smartphone } from "lucide-react";
+import { Product, RepairVideoType, Order, ShopData, OptionPickerCategory, StepItem, CategoryInfo } from "./types";
 
 export const products: Product[] = [
   {
@@ -703,3 +704,215 @@ export const itemsOffer = [
     alt: "SIM cards and mobile plans"
   }
 ];
+
+export const mockShopsData: ShopData[] = [
+  {
+    id: "shop-001",
+    name: "Mobile Hub Express",
+    address: "32, MG Road, Bengaluru, Karnataka 560001",
+    rating: 4.4,
+    user_ratings_total: 250,
+    open_now: true,
+    location: { lat: 12.9756, lng: 77.6052 },
+    types: ["electronics_store", "mobile_store", "repair_service"],
+    photos: [
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9",
+      "https://images.unsplash.com/photo-1519125323398-675f0ddb6308"
+    ],
+    icon: "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/electronics-71.png",
+    isSponsered: true,
+    maps_url: "https://maps.google.com/?q=12.9756,77.6052"
+  },
+  {
+    id: "shop-002",
+    name: "QuickFix Mobile Repairs",
+    address: "11, 4th Cross, HSR Layout, Bengaluru 560102",
+    rating: 4.8,
+    user_ratings_total: 420,
+    open_now: false,
+    location: { lat: 12.9116, lng: 77.6192 },
+    types: ["repair_service", "mobile_store"],
+    photos: [
+      "https://images.unsplash.com/photo-1464983953574-0892a716854b"
+    ],
+    icon: "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/repair-71.png",
+    isSponsered: false,
+    maps_url: "https://maps.google.com/?q=12.9116,77.6192"
+  },
+  {
+    id: "shop-003",
+    name: "iGadget World",
+    address: "245, Commercial St, Shivaji Nagar, Bengaluru 560001",
+    rating: 4.0,
+    user_ratings_total: 87,
+    open_now: true,
+    location: { lat: 12.9848, lng: 77.6089 },
+    types: ["electronics_store", "accessories_store"],
+    photos: [
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb"
+    ],
+    icon: "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+    isSponsered: false,
+    maps_url: "https://maps.google.com/?q=12.9848,77.6089"
+  },
+  {
+    id: "shop-004",
+    name: "Sparx Mobiles & Services",
+    address: "5, ITPL Main Rd, Whitefield, Bengaluru 560066",
+    rating: 4.6,
+    user_ratings_total: 114,
+    open_now: true,
+    location: { lat: 12.9719, lng: 77.7500 },
+    types: ["mobile_store", "repair_service"],
+    photos: [
+      "https://images.unsplash.com/photo-1482062364825-616fd23b8fc1"
+    ],
+    icon: "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/mobile-71.png",
+    isSponsered: true,
+    maps_url: "https://maps.google.com/?q=12.9719,77.7500"
+  },
+  {
+    id: "shop-005",
+    name: "City Center Electronics",
+    address: "3, Brigade Rd, Ashok Nagar, Bengaluru 560025",
+    rating: 3.9,
+    user_ratings_total: 67,
+    open_now: false,
+    location: { lat: 12.9717, lng: 77.6065 },
+    types: ["electronics_store"],
+    photos: [],
+    icon: "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/electronics-71.png",
+    isSponsered: false,
+    maps_url: "https://maps.google.com/?q=12.9717,77.6065"
+  }
+];
+import { v4 as uuidv4 } from 'uuid';
+export const mockerOrdersData: Order[] = [
+    // === REPAIR orders unchanged ===
+    {
+        id: 'R-10187',
+        productName: 'Samsung A12 5G',
+        category: 'repair',
+        status: 'in-progress',
+        orderDate: 'Jul 27, 2025, 02:45 PM',
+        issue: 'Back Camera not focusing',
+        shopData: mockShopsData[0],
+        image: '📱',
+        progress: 60,
+        color: '#568F87',
+        price: 450
+    },
+    {
+        id: 'R-10188',
+        productName: 'iPhone 13 Pro',
+        category: 'repair',
+        status: 'completed',
+        orderDate: 'Jul 26, 2025, 11:30 AM',
+        issue: 'Screen replacement',
+        image: '📱',
+        progress: 100,
+        color: '#DFF7DD', // Light Mint Green for repair & completed
+        price: 1200,
+        shopData: mockShopsData[0],
+
+    },
+
+    // === ACCESSORIES orders UPDATED with "items" arrays ===
+    {
+        id: 'A-10189',
+        productName: 'Mobile Accessory',
+        category: 'accessories',
+        status: 'completed',
+        orderDate: 'Jul 25, 2025, 06:25 PM',
+        location: 'Koramangala Bengaluru', //shop location if delivery home to the users location
+        price: 202, // total after discounts
+        quantity: 2,
+        image: '🔌',
+        shopData: mockShopsData[1],
+        progress: 100,
+        delivery: "in-shop",
+        color: '#FFF3D6', // Soft Light Yellow for accessories & completed
+        items: [
+            { id: products[0].id + uuidv4(), item: products[0], quantity: 1, totalPrice: products[0].price * 1 },
+            { id: products[1].id + uuidv4(), item: products[1], quantity: 1, totalPrice: products[1].price * 1 },
+            { id: products[0].id + uuidv4(), item: products[0], quantity: 1, totalPrice: products[0].price * 1 },
+            { id: products[0].id + uuidv4(), item: products[0], quantity: 1, totalPrice: products[0].price * 1 },
+        ],
+    },
+    {
+        id: 'A-10190',
+        productName: 'Mobile Accessory',
+        category: 'accessories',
+        status: 'in-progress',
+        orderDate: 'Jul 24, 2025, 03:15 PM',
+        location: 'Electronic City Bengaluru',
+        price: 24900, // total after discounts
+        quantity: 3,
+        image: '🎧',
+        progress: 30,
+        shopData: mockShopsData[0],
+        delivery: "home-delivery",
+        color: '#D0F0FF', // Very Light Blue for accessories & in-progress
+        items: [
+            { id: products[0].id + uuidv4(), item: products[0], quantity: 1, totalPrice: products[0].price * 1 },
+            { id: products[1].id + uuidv4(), item: products[1], quantity: 1, totalPrice: products[1].price * 1 },
+            { id: products[0].id + uuidv4(), item: products[0], quantity: 1, totalPrice: products[0].price * 1 },
+            { id: products[0].id + uuidv4(), item: products[0], quantity: 1, totalPrice: products[0].price * 1 },
+        ],
+    },
+
+    // === REPAIR orders unchanged ===
+    {
+        id: 'R-10191',
+        productName: 'Samsung Galaxy S23',
+        category: 'repair',
+        status: 'cancelled',
+        orderDate: 'Jul 23, 2025, 09:20 AM',
+        issue: 'Battery replacement',
+
+        image: '📱',
+        progress: 0,
+        price: 700,
+        shopData: mockShopsData[0],
+        color: '#FDDDDD' // Soft Pink/Light Red for cancelled
+    },
+    {
+        id: 'R-10192',
+        productName: 'Samsung Galaxy S23',
+        category: 'repair',
+        status: 'shipping-soon',
+        orderDate: 'Jul 23, 2025, 09:20 AM',
+        issue: 'Battery replacement',
+        shopData: mockShopsData[0],
+        image: '📱',
+        progress: 0,
+        price: 1200,
+        color: '#D9EAF7' // Very Light Blue Gray for shipping soon
+    }
+];
+
+
+export  const tabs = [
+    { key: "all", label: "All Orders", count: mockerOrdersData.length },
+    { key: "in-progress", label: "In-Progress", count: mockerOrdersData.filter(o => o.status === "in-progress").length },
+    { key: "completed", label: "Completed", count: mockerOrdersData.filter(o => o.status === "completed").length },
+    { key: "cancelled", label: "Cancelled", count: mockerOrdersData.filter(o => o.status === "cancelled").length },
+];
+
+export const orderCategory: OptionPickerCategory[] = [
+    { id: "all", label: "All", icon: Grid },
+    { id: "repair", label: "Repair", icon: Smartphone },
+    { id: "accessories", label: "Accessories", icon: Headphones },
+];
+
+
+
+
+// Map status to step key for Stepper (should match StepItem keys above)
+export const statusToStepKey: Record<string, StepItem['key']> = {
+    'in-progress': 'preparing',
+    'shipping-soon': 'shipping-soon',
+    'out-for-delivery': 'out-for-delivery',
+    'completed': 'completed',
+    'cancelled': 'cancelled', // For cancelled, will render "Cancelled" label at last visible step
+};

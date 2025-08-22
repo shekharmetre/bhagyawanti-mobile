@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React, { PropsWithChildren, useEffect, useRef, useState } from 'react'
 
@@ -39,25 +39,25 @@ export default function UnistSliderWrapper({
   const [childCount, setChildCount] = useState(0)
   const [currentPerView, setCurrentPerView] = useState(perView)
 
-  // Update perView on screen resize
-  const updatePerView = () => {
-    const width = window.innerWidth
-    let matched = perView
+  // Update perView on screen resize (define function inside the effect to avoid dependency warning)
+  useEffect(() => {
+    const updatePerView = () => {
+      const width = window.innerWidth
+      let matched = perView
 
-    for (const bp of Object.keys(breakpoints).map(Number).sort((a, b) => a - b)) {
-      if (width >= bp) {
-        matched = breakpoints[bp]
+      for (const bp of Object.keys(breakpoints).map(Number).sort((a, b) => a - b)) {
+        if (width >= bp) {
+          matched = breakpoints[bp]
+        }
       }
+
+      setCurrentPerView(matched)
     }
 
-    setCurrentPerView(matched)
-  }
-
-  useEffect(() => {
     updatePerView()
     window.addEventListener('resize', updatePerView)
     return () => window.removeEventListener('resize', updatePerView)
-  }, [breakpoints])
+  }, [breakpoints, perView])
 
   // Scroll to child
   const scrollToChild = (index: number) => {
@@ -65,12 +65,12 @@ export default function UnistSliderWrapper({
     if (!container) return
     const children = Array.from(container.children)
     if (children[index]) {
-      children[index].scrollIntoView({ behavior: 'smooth', inline: 'start' })
+      ;(children[index] as HTMLElement).scrollIntoView({ behavior: 'smooth', inline: 'start' })
       setCurrentIndex(index)
     }
   }
 
-  // Autoplay
+  // Autoplay (include autoplayDelay as the linter requests)
   useEffect(() => {
     if (!autoplay || childCount === 0) return
 
@@ -83,9 +83,9 @@ export default function UnistSliderWrapper({
     }, autoplayDelay)
 
     return () => clearInterval(interval)
-  }, [autoplay, childCount, currentPerView])
+  }, [autoplay, childCount, currentPerView, autoplayDelay])
 
-  // Count children on mount
+  // Count children on mounts/updates
   useEffect(() => {
     if (containerRef.current) {
       setChildCount(containerRef.current.children.length)
@@ -128,7 +128,10 @@ export default function UnistSliderWrapper({
               disabled={currentIndex + currentPerView >= childCount}
               onClick={() =>
                 scrollToChild(
-                  Math.min(childCount - Math.ceil(currentPerView), currentIndex + Math.ceil(currentPerView))
+                  Math.min(
+                    childCount - Math.ceil(currentPerView),
+                    currentIndex + Math.ceil(currentPerView)
+                  )
                 )
               }
             />

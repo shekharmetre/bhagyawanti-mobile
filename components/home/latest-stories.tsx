@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Calendar, User, Eye, Heart, Share2, BookOpen, TrendingUp, Clock } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
 
 interface Story {
   id: number;
@@ -198,7 +199,9 @@ export const LatestStoriesSection = () => {
               <Card className="group cursor-pointer overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-500 bg-gradient-to-br from-card to-card/80">
                 <div className="relative">
                   <div className="aspect-[16/9] md:aspect-[16/10] overflow-hidden">
-                    <img 
+                    <Image 
+                    width={200}
+                    height={200}
                       src={featuredStory.image} 
                       alt={featuredStory.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
@@ -287,7 +290,9 @@ export const LatestStoriesSection = () => {
                     <div className="flex gap-3">
                       <div className="shrink-0">
                         <div className="w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden bg-muted">
-                          <img 
+                          <Image 
+                          width={200}
+                          height={200}
                             src={story.image} 
                             alt={story.title}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
@@ -348,7 +353,9 @@ export const LatestStoriesSection = () => {
             {filteredStories.slice(5).map((story) => (
               <Card key={story.id} className="group cursor-pointer border-border/50 hover:border-border hover:shadow-md transition-all duration-300">
                 <div className="aspect-[16/10] overflow-hidden rounded-t-lg">
-                  <img 
+                  <Image
+                  width={100}
+                  height={100} 
                     src={story.image} 
                     alt={story.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"

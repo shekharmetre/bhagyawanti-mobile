@@ -11,7 +11,7 @@ interface BookingSuccessScreenProps {
   selectedDevice: {
     brand: string;
     modelName: string;
-    repairType: {name:string,price:string};
+    repairType: {name:string,price:string} | null;
   };
   selectedDate?: Date;
   selectedTime?: string;
@@ -69,7 +69,7 @@ export const BookingSuccessScreen: React.FC<BookingSuccessScreenProps> = ({
           </li>
           <li className="flex justify-between">
             <span className="font-medium">Repair Type:</span>
-            <span>{selectedDevice.repairType.name}</span>
+            <span>{selectedDevice?.repairType?.name}</span>
           </li>
           {selectedDate && (
             <li className="flex justify-between">

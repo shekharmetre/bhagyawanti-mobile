@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -45,9 +45,7 @@ export default function ProductFilters() {
   );
 
   // Find max price for slider
-  const highestPrice = Math.ceil(
-    Math.max(...products.map((p) => p.price))
-  );
+  const highestPrice = Math.ceil(Math.max(...products.map((p) => p.price)));
 
   // State for price slider
   const [priceRange, setPriceRangeLocal] = useState([minPrice, maxPrice]);
@@ -70,14 +68,16 @@ export default function ProductFilters() {
     setSubcategory(subcategory);
   };
 
-  const handleResetFilters = () => {
+  // FIX: memoize to stabilize the dependency for the effect below
+  const handleResetFilters = useCallback(() => {
     resetFilters();
     setPriceRangeLocal([0, highestPrice]);
-  };
+  }, [resetFilters, highestPrice]);
 
-  useEffect(()=>{
-        handleResetFilters()
-  },[resetFilters])
+  // If this should run on mount (and when its true dependencies change)
+  useEffect(() => {
+    handleResetFilters();
+  }, [handleResetFilters]);
 
   return (
     <div className="space-y-6">
@@ -93,7 +93,7 @@ export default function ProductFilters() {
           <AccordionTrigger>Categories</AccordionTrigger>
           <AccordionContent>
             <div className="flex flex-col space-y-3">
-              {categories.map((category,index) => (
+              {categories.map((category, index) => (
                 <div key={`${category.name}~${index}`} className="flex items-center space-x-2">
                   <Checkbox
                     id={`category-${category.slug}+${index}`}
@@ -118,10 +118,7 @@ export default function ProductFilters() {
             <AccordionContent>
               <div className="flex flex-col space-y-3">
                 {subcategories.map((subcategory) => (
-                  <div
-                    key={`${subcategory}`}
-                    className="flex items-center space-x-2"
-                  >
+                  <div key={`${subcategory}`} className="flex items-center space-x-2">
                     <Checkbox
                       id={`subcategory-${subcategory}`}
                       onCheckedChange={() => handleSubcategoryClick(subcategory)}
@@ -154,12 +151,8 @@ export default function ProductFilters() {
                 onValueChange={setPriceRangeLocal}
               />
               <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-500 dark:text-gray-400">
-                  ₹{priceRange[0]}
-                </span>
-                <span className="text-sm text-gray-500 dark:text-gray-400">
-                  ₹{priceRange[1]}
-                </span>
+                <span className="text-sm text-gray-500 dark:text-gray-400">₹{priceRange[0]}</span>
+                <span className="text-sm text-gray-500 dark:text-gray-400">₹{priceRange[1]}</span>
               </div>
             </div>
           </AccordionContent>
@@ -170,10 +163,7 @@ export default function ProductFilters() {
           <AccordionContent>
             <div className="flex flex-col space-y-3">
               {compatibilities.map((compatibility) => (
-                <div
-                  key={compatibility}
-                  className="flex items-center space-x-2"
-                >
+                <div key={compatibility} className="flex items-center space-x-2">
                   <Checkbox id={`compatibility-${compatibility}`} />
                   <label
                     htmlFor={`compatibility-${compatibility}`}

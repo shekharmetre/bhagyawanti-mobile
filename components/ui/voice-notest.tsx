@@ -74,7 +74,7 @@ export default function VoiceNotesCompact({ onChange }: VoiceNotesCompactProps) 
 
   const stopRecording = () => {
     if (mediaRecorderRef.current?.state !== "inactive") {
-      mediaRecorderRef?.current.stop();
+      mediaRecorderRef?.current?.stop();
     }
     if (recognitionRef.current) {
       recognitionRef.current.stop();

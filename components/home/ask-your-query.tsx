@@ -29,7 +29,8 @@ import {
   ChevronUp,
   Search,
   Filter,
-  Tag
+  Tag,
+  Truck
 } from 'lucide-react';
 
 interface QueryFormData {

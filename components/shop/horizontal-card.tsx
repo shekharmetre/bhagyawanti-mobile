@@ -27,8 +27,8 @@ export function HorizontalShopCard({ allProducts, keyId }: { allProducts: ShopDa
 
   function ScheduleVisit() {
     openModal(
-      <RepairSchedulingModal access_token={access_token} onClose={closeModal} isOpen={true} selectedDevice={{ brand, modelName, repairType: { name: video.name, price: video.price } }} shopDetail={selectedShopId} />
-    );
+      <RepairSchedulingModal access_token={access_token} onClose={closeModal} isOpen={true} selectedDevice={{ brand, modelName, repairType:{ name: video?.name ?? "", price: video?.price ?? "" } }} shopDetail={selectedShopId} />
+    ); 
   }
 
   useEffect(() => {
@@ -161,9 +161,9 @@ export function HorizontalShopCard({ allProducts, keyId }: { allProducts: ShopDa
       </div>
       {filteredShops.length > 0 ? (
         filteredShops.map((shop, index) => (
-          <div className="relative">
-            <ShopCard key={`${shop.id}-${index}`} shopData={shop} />
-            <div className="absolute top-5 right-10">
+          <div className="relative" key={`${shop.id}-${index}`}>
+            <ShopCard keyid={`${shop.id}-${index}`} shopData={shop} />
+            <div key={shop.id} className="absolute top-5 right-10">
               <AnimatedSuccessButton
                 fillDurationMs={2000}
                 shopdata={shop}

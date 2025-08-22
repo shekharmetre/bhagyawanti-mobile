@@ -53,20 +53,34 @@ export default function RepairSection({
 }: {
   selectedRepair?: (name: string, price: string) => void;
   disabled: boolean;
-  video: { name: string; price: string };
+  video: { name: string; price: string }| null;
 }) {
-  // 🔹 FIX: Store `sel` as string (name) instead of object
-  const [sel, setSel] = useState(video.name || "");
+  // Store the selected name string (not the whole object)
+  const [sel, setSel] = useState(video?.name || "");
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
   const [infoVisible, setInfoVisible] = useState<Record<string, boolean>>({});
+
+  // Hold references to video elements
   const videoRefs = useRef<HTMLVideoElement[]>([]);
+
+  // Stable setter for video refs keyed by video.id (avoids index issues)
+  const setVideoRef = (el: HTMLVideoElement | null, key: string) => {
+    if (el) {
+      (el as any).__vidKey = key;
+      const exists = videoRefs.current.some((v) => (v as any).__vidKey === key);
+      if (!exists) {
+        videoRefs.current.push(el);
+      }
+    } else {
+      videoRefs.current = videoRefs.current.filter((v) => (v as any).__vidKey !== key);
+    }
+  };
 
   const filtered = repairVideos.filter((b) =>
     b.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  // 🔹 FIX: Display label now works with string sel
   const displayLabel = sel || "Choose a repair service...";
 
   useEffect(() => {
@@ -84,8 +98,15 @@ export default function RepairSection({
       { threshold: 0.6 }
     );
 
-    videoRefs.current.forEach((vid) => vid && observer.observe(vid));
-    return () => videoRefs.current.forEach((vid) => vid && observer.unobserve(vid));
+    // Snapshot refs to ensure cleanup unobserves the same nodes
+    const currentVideos = [...videoRefs.current];
+
+    currentVideos.forEach((vid) => vid && observer.observe(vid));
+
+    return () => {
+      currentVideos.forEach((vid) => vid && observer.unobserve(vid));
+      observer.disconnect();
+    };
   }, []);
 
   const toggleInfo = (id: string) => {
@@ -95,18 +116,16 @@ export default function RepairSection({
     }));
   };
 
-  // 🔹 FIX: Match by name now
+  // Keep selected card first
   const selectedVideo = repairVideos.find((v) => v.name === sel);
   const otherVideos = repairVideos.filter((v) => v.name !== sel);
-  const orderedVideos = selectedVideo
-    ? [selectedVideo, ...otherVideos]
-    : repairVideos;
+  const orderedVideos = selectedVideo ? [selectedVideo, ...otherVideos] : repairVideos;
 
   const renderCard = (video: any, idx: number) => {
     const isSelected = sel === video.name;
     return (
       <div
-        key={video.id+idx}
+        key={`${video.id}-${idx}`}
         className={`max-w-[200px] h-[300px] sm:max-w-[200px] md:max-w-[250px] flex-shrink-0 relative flex flex-col gap-2 rounded-xl overflow-x-auto border transition hover:scale-[1.02] ${
           isSelected
             ? "border-blue-500 ring ring-blue-300 shadow-lg"
@@ -128,9 +147,7 @@ export default function RepairSection({
 
         <div className="h-28 w-full rounded-xl overflow-hidden border bg-black shadow-md cursor-pointer">
           <video
-            ref={(el) => {
-              if (el) videoRefs.current[idx] = el;
-            }}
+            ref={(el) => setVideoRef(el, String(video.id))}
             src={video.videoUrl}
             muted
             loop
@@ -142,7 +159,7 @@ export default function RepairSection({
         {infoVisible[video.id] && (
           <div className="absolute top-10 right-2 z-20 w-56 bg-white shadow-lg rounded-lg p-3 text-xs border">
             <p>🕒 {video.timeEstimate}</p>
-            {video.reasons?.slice(0, 2).map((r, i) => (
+            {video.reasons?.slice(0, 2).map((r: string, i: number) => (
               <p key={i}>📍 {r}</p>
             ))}
           </div>
@@ -150,9 +167,7 @@ export default function RepairSection({
 
         <div className="p-3 gap-2 flex flex-col items-start cursor-pointer">
           <div className="text-sm text-gray-600">NAME: {video.name ?? "N/A"}</div>
-          <div className="text-sm text-gray-600">
-            PRICE: Rs. {video.price ?? "N/A"} /-
-          </div>
+          <div className="text-sm text-gray-600">PRICE: Rs. {video.price ?? "N/A"} /-</div>
           <RepairOptionsList options={video.options} videoId={video.id} />
         </div>
       </div>
@@ -169,9 +184,7 @@ export default function RepairSection({
         onClick={() => setOpen(!open)}
         className="border border-gray-300 rounded-md md:p-2 p-1 w-full mt-2 bg-white flex justify-between items-center"
       >
-        <span className={`${sel ? "text-black" : "text-gray-400"}`}>
-          {displayLabel}
-        </span>
+        <span className={`${sel ? "text-black" : "text-gray-400"}`}>{displayLabel}</span>
         <ChevronDown className="w-4 h-4" />
       </button>
 
@@ -189,7 +202,7 @@ export default function RepairSection({
                 <li
                   key={video.id}
                   onClick={() => {
-                    setSel(video.name); // 🔹 FIX: store name only
+                    setSel(video.name); // store name only
                     setOpen(false);
                     setSearch("");
                     selectedRepair?.(video.name, video.price);

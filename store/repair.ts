@@ -10,7 +10,7 @@ interface RepairSelectionData {
   selection: "repair";
   brand: string;
   modelName: string;
-  video: {name:string,price:string}; // ✅ allow null
+  video:{name:string,price:string} | null; // ✅ allow null
   optional: ExtraInfoItem[];
 }
 
